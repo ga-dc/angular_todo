@@ -6,7 +6,24 @@
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
-  <body>
+  <body data-ng-app="todo">
     <h1>To Do!</h1>
+    <div data-ng-controller="TodoController as todo">
+    <!-- add item form -->
+    <form data-ng-submit="todo.addItem()">
+      <input type="text" placeholder="Type an item..." data-ng-model="todo.item"></input>
+      <input type="submit" value="Add Item"></input>
+    </form>
+
+    <!-- item list -->
+    <div class="items" data-ng-repeat="item in todo.items">
+      {{item}}
+      <button data-ng-click="todo.isHidden = false">Edit</button>
+      <form data-ng-hide="todo.isHidden" data-ng-submit="todo.edit($index)">
+        <input type="text" data-ng-model="todo.item"></input>
+      </form>
+      <button data-ng-click="todo.delete($index)">Delete</button>
+    </div>
+  </div>
   </body>
 </html>
