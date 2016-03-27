@@ -16,13 +16,14 @@
       <thead>
         <tr>
           <td>A - Z Tasks</td>
-          <th>Item</th>
-          <th>Due Date</th>
+          <th data-ng-click="viewmod.sort_on = 'item'">Item</th>
+          <th data-ng-click="viewmod.sort_on = 'detail'">Details</th>
+          <th data-ng-click="viewmod.sort_on - 'due_date'">Due Date</th>
           <th>Notes</th>
         </tr>
       </thead>
       <tbody>
-        <tr data-ng-repeat="task in viewmod.data | filter: viewmod.filter_on">
+        <tr data-ng-repeat="task in viewmod.data | filter: viewmod.filter_on | sort: viewmod.sort_on">
           <td>{{$index + 1}}</td>
           <td>{{task.item}}</td>
           <td>{{task.detail}}</td>
