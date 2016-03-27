@@ -5,12 +5,13 @@
   <title>Angular ToDo App</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
   <script src="app.js"></script>
+  <script src="data.js"></script>
 </head>
 <body class="container" data-ng-app="todo">
   <h1>To Do!</h1>
   <main data-ng-controller="todo_controller as viewmod">
     <h2>{{viewmod.data}}</h2>
-    <input type="text" class="form-control" />
+    <input type="text" class="form-control" data-ng-model="viewmod.filter_on" />
     <table class="table table-striped">
       <thead>
         <tr>
@@ -21,10 +22,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr data-ng-repeat="task in viewmod.data">
+        <tr data-ng-repeat="task in viewmod.data | filter: viewmod.filter_on">
           <td>{{$index + 1}}</td>
           <td>{{task.item}}</td>
-          <td>{{task.duedate}}</td>
+          <td>{{task.detail}}</td>
+          <td>{{task.due_date}}</td>
+          <td>
+            <input type="text" data-ng-model="task.notes">
+          </td>
         </tr>
       </thead>
     </tbody>
