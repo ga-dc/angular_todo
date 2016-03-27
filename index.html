@@ -1,14 +1,33 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-     <meta charset="UTF-8">
-     <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
-  </head>
-  <body class="container" data-ng-app="todo">
-    <h1>To Do!</h1>
-    <main data-ng-controller="todo_controller as viewmod">
-      <h2>{{viewmod.todo}}</h2>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular ToDo App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body class="container" data-ng-app="todo">
+  <h1>To Do!</h1>
+  <main data-ng-controller="todo_controller as viewmod">
+    <h2>{{viewmod.data}}</h2>
+    <input type="text" class="form-control" />
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td>A - Z Tasks</td>
+          <th>Item</th>
+          <th>Due Date</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-ng-repeat="task in viewmod.data">
+          <td>{{task.item}}</td>
+          <td>{{task.duedate}}</td>
+        </tr>
+      </thead>
+    </tbody>
+  </table>
+</div>
+</body>
 </html>

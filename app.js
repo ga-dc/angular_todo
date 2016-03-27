@@ -6,7 +6,8 @@
     .controller("todo_controller", TodoController);
   function TodoController(){
     var viewmod = this;
-    viewmod.todo = "I've got shit to do!";
+    viewmod.data = "I've got shit to do!";
   }
+  
 
 })();
