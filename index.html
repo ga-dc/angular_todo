@@ -8,15 +8,22 @@
   </head>
   <body class='container' data-ng-app='task'>
     <h1>To Do!</h1>
-    <div data-ng-controller='task_controller as vm'>
+    <div data-ng-controller='tasks_controller as vm'>
       <!-- Show to dos -->
-
-      <!-- Add to dos -->
-      <ul data-ng-repeat='todo in vm.data'>
+      <ul data-ng-repeat='task in vm.data'>
         <li>
-          {{todo}}
+          {{task}}
         </li>
       </ul>
+
+      <!-- Add to dos -->
+      <div>
+        <form data-ng-submit='vm.create()'>
+          <label>New Task</label>
+          <input type='text' data-ng-model='vm.new_task'/>
+        </form>
+
+      </div>
 
     </div>
   </body>
