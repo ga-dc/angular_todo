@@ -1,0 +1,13 @@
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
+
+ul {
+  list-style: none;
+  font-size: 20px;
+}
+
+input[type=text] {
+  font-size: 20px;
+}
