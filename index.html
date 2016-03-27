@@ -9,10 +9,14 @@
   <body class="container" data-ng-app="todo">
     <h1>To Do!</h1>
     <main data-ng-controller="todo_controller as vm">
-        <div data-ng-repeat="task in vm.tasks">
+        <div data-ng-repeat="task in vm.tasks track by $index">
           <p>{{task}}</p>
           <p data-ng-click="vm.destroy(task)">&cross;</p>
         </div>
+        <div colspan="1">
+          <input type="text" data-ng-model="vm.task" placeholder="New Task" />
+        </div>
+        <div data-ng-click="vm.create()">&plus;</div>
     </main>
   </body>
 </html>
