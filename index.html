@@ -1,12 +1,38 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-     <meta charset="UTF-8">
-     <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
-  </head>
-  <body>
-    <h1>To Do!</h1>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular ToDo App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</head>
+<body data-ng-app="todo">
+  <h1>To Do!</h1>
+  <main data-ng-controller="todo_controller as item">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Thing To Do</td>
+          <td>When It's Due</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" data-ng-model="item.new_item.name" placeholder="Enter some task" />
+          </td>
+          <td>
+            <input type="text" data-ng-model="item.new_item.due" placeholder="Due Date" />
+          </td>
+          <td data-ng-click="item.create()">&plus;</td>
+        <tr data-ng-repeat="item in item.data">
+          <td>{{item.name}}</td>
+          <td>{{item.due}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
 </html>
