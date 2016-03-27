@@ -15,6 +15,11 @@
     vm.create = function() {
       vm.data.push(angular.copy(vm.new_task));
       vm.new_task = {};
-    };
-  }
+    }; // end of create
+
+    vm.destroy = function(task) {
+      var index = vm.data.indexOf(task);
+      vm.data.splice(index, 1);
+    }; // end of destroy
+  } // end of TaskController
 })();
