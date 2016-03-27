@@ -24,7 +24,7 @@
           <tr data-ng-repeat="todo in vm.data">
             <td>{{$index + 1}}</td>
             <td>{{todo.task}}</td>
-
+            <td data-ng-click="vm.destroy(todo)">&cross;</td>
           </tr>
         </tbody>
 
