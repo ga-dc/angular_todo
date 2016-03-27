@@ -14,10 +14,10 @@
       vm.data.splice(index, 1);
     };
 
-    vm.new_task = {};
+    vm.new_todo = {};
     vm.create = function(){
-      vm.data.push(angular.copy(vm.new_task));
-      vm.new_task = {};
+      vm.data.push(angular.copy(vm.new_todo));
+      vm.new_todo = {};
     };
 
   }

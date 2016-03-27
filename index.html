@@ -26,8 +26,14 @@
             <td>{{todo.task}}</td>
             <td data-ng-click="vm.destroy(todo)">&cross;</td>
           </tr>
+          <tr>
+            <td>Add!</td>
+            <td>
+              <input type="text" data-ng-model="vm.new_todo.task" placeholder="To-Do" />
+            </td>
+            <td data-ng-click="vm.create()">&plus;</td>
+          </tr>
         </tbody>
-
       </table>
 
     </main>
