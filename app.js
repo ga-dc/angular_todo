@@ -12,5 +12,10 @@
       "Goodbye, Cruel World.",
       "Hello, Mars"
     ];
+
+    vm.destroy = function(task){
+      var index = vm.tasks.indexOf(task);
+      vm.tasks.splice(index, 1);
+    };
   }
 })();

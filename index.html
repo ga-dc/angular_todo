@@ -11,6 +11,7 @@
     <main data-ng-controller="todo_controller as vm">
         <div data-ng-repeat="task in vm.tasks">
           <p>{{task}}</p>
+          <p data-ng-click="vm.destroy(task)">&cross;</p>
         </div>
     </main>
   </body>
