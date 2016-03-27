@@ -3,32 +3,38 @@
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
   </head>
-  <body>
+  <body data-ng-app="toDoApp">
     <h1>To Do!</h1>
-    <table>
-      <thead>
-        <tr>
-          <td>No.</td>
-          <th>Task</th>
-          <th>Done</th>
-          <th>Delete</th>
-        </tr>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>dinner</td>
-          <td><input type="checkbox" name="check" label="checkbox"></td>
-          <td>X</td>
-        </tr>
-      </tbody>
-    </table>
-    <form>
-      <input type="text" name="add-task" label="task-input">
-      <input type="submit">
-    </form>
 
+    <main data-ng-controller="list_controller as vm">
+
+      <table>
+        <thead>
+          <tr>
+            <td>No.</td>
+            <th>Task</th>
+            <th>Done</th>
+            <th>Delete</th>
+          </tr>
+        <tbody>
+          <tr data-ng-repeat="task in vm.tasks">
+            <td>{{$index + 1}}</td>
+            <td>{{task.name}}</td>
+            <td><input type="checkbox" name="check" label="checkbox" id="task-check"></td>
+            <td><button value="x" label="delete-button" data-ng-click="deleteTask()" id="delete-btn">Delete Task</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <form>
+        <input type="text" name="add-task" label="task-input" placeholder="enter new task" id="task-field">
+        <input data-ng-click="vm.taskAdder()" type="button" value="Add Task" id="create-btn">
+      </form>
+
+    </main>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
