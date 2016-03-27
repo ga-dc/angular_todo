@@ -26,15 +26,27 @@
           </tr>
         </thead>
         <tbody>
-          <tr data-ng-repeat="item in viewmod.data | filter: viewmod.filter_on | orderBy: viewmod.sort_on : viewmod.is_descending">
+          <tr data-ng-repeat="task in viewmod.data | filter: viewmod.filter_on | orderBy: viewmod.sort_on : viewmod.is_descending">
             <td>{{$index + 1}}</td>
             <td>{{task.item}}</td>
             <td>{{task.detail}}</td>
             <td>{{task.due_date}}</td>
             <td>
-              <input type="text" data-ng-model="item.notes" />
+              <input type="text" data-ng-model="task.notes" />
             </td>
-            <td data-ng-click="viewmod.destroy(item)">&cross;</td>
+            <td data-ng-click="viewmod.destroy(task)">&cross;</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="text" data-ng-model="viewmod.new_task.item" placeholder="New Task" />
+            </td>
+            <td>
+              <input type="text" data-ng-model="viewmod.new_task.detail" placeholder="Detail" />
+            </td>
+            <td>
+              <input type="date" data-ng-model="viewmod.new_task.due_date" placeholder="Due Date" />
+            </td>
+            <td data-ng-click="viewmod.create()">&plus;</td>
           </tr>
         </tbody>
       </table>

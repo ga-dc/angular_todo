@@ -11,14 +11,14 @@
       viewmod.sort_on = item;
       viewmod.is_descending = !(viewmod.is_descending);
     };
-    viewmod.destroy = function(item){
-      var index = viewmod.data.indexOf(item);
+    viewmod.destroy = function(task){
+      var index = viewmod.data.indexOf(task);
       viewmod.data.splice(index, 1);
     };
-    viewmod.new_item = {};
+    viewmod.new_task = {};
     viewmod.create = function(){
-      viewmod.data.push(angular.copy(viewmod.new_item));
-      viewmod.new_item = {};
+      viewmod.data.push(angular.copy(viewmod.new_task));
+      viewmod.new_task = {};
     };
   }
 })();
