@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Angular ToDo App</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-  <script src="data.js"></script>
-  <script src="app.js"></script>
-</head>
-<body class="container" data-ng-app="todo">
-  <h1>To Do!</h1>
-  <main data-ng-controller="todo_controller as viewmod">
-    <h2>{{viewmod.data}}</h2>
-    <input type="text" class="form-control" data-ng-model="viewmod.filter_on" />
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <td data-ng-click="viewmod.is_descending" = "!(viewmod.is_descending)">
-          <span data-ng-if="viewmod.is_descending">z-a</span>
-          <span data-ng-if="!viewmod.is_descending">a-z<span>
-          </td>
-          <th data-ng-click="viewmod.sort_on = 'item'">Item</th>
-          <th data-ng-click="viewmod.sort_on = 'detail'">Details</th>
-          <th data-ng-click="viewmod.sort_on - 'due_date'">Due Date</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr data-ng-repeat="task in viewmod.data | filter: viewmod.filter_on | sort: viewmod.sort_on : viewmod.is_descending">
-          <td>{{$index + 1}}</td>
-          <td>{{task.item}}</td>
-          <td>{{task.detail}}</td>
-          <td>{{task.due_date}}</td>
-          <td>
-            <input type="text" data-ng-model="task.notes">
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Angular ToDo App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body class="container" data-ng-app="todo">
+    <h1>To Do!</h1>
+    <main data-ng-controller="todo_controller as viewmod">
+      <input type="text" class="form-control" data-ng-model="viewmod.filter_on" />
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td data-ng-click="viewmod.is_descending = !(viewmod.is_descending)">
+              <span data-ng-if="viewmod.is_descending">z-a</span>
+              <span data-ng-if="!viewmod.is_descending">a-z</span>
+            </td>
+            <th data-ng-click="viewmod.sort_data_by('item')">Item</th>
+            <th data-ng-click="viewmod.sort_data_by('detail')">Detail</th>
+            <th data-ng-click="viewmod.sort_data_by('due_date')">Due Date</th>
+            <th>Notes</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-ng-repeat="item in viewmod.data | filter: viewmod.filter_on | orderBy: viewmod.sort_on : viewmod.is_descending">
+            <td>{{$index + 1}}</td>
+            <td>{{task.item}}</td>
+            <td>{{task.detail}}</td>
+            <td>{{task.due_date}}</td>
+            <td>
+              <input type="text" data-ng-model="item.notes" />
+            </td>
+            <td data-ng-click="viewmod.destroy(item)">&cross;</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
 </html>
