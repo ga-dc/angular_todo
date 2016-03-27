@@ -16,6 +16,7 @@
         <tr>
           <td>Thing To Do</td>
           <td>When It's Due</td>
+          <td>Add/Edit/Delete</td>
         </tr>
       </thead>
       <tbody>
@@ -26,13 +27,15 @@
           <td>
             <input type="text" data-ng-model="item.new_item.due" placeholder="Due Date" />
           </td>
-          <td data-ng-click="item.create()">&plus;</td>
-        <tr data-ng-repeat="item in item.data">
-          <td>{{item.name}}</td>
-          <td>{{item.due}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </main>
-</body>
-</html>
+          <td data-ng-click="item.create()">Add</td>
+          <tr data-ng-repeat="activity in item.data">
+            <td>{{activity.name}}</td>
+            <td>{{activity.due}}</td>
+            <td data-ng-click="item.edit(activity)">Edit</td>
+            <td data-ng-click="item.destroy(activity)">&cross;</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+  </html>
