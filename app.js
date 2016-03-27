@@ -7,9 +7,10 @@
 
   function TodoController() {
     var vm = this;
-    vm.task = [
+    vm.tasks = [
       "Hello World",
       "Goodbye, Cruel World.",
-      "Hello, Mars"];
+      "Hello, Mars"
+    ];
   }
 })();

@@ -9,7 +9,11 @@
   <body class="container" data-ng-app="todo">
     <h1>To Do!</h1>
     <main data-ng-controller="todo_controller as vm">
-      <p>{{vm.task}}</p>
+      <!-- <p>{{vm.task}}</p> -->
+      <!-- <p>{{vm.task.}}</p> -->
+        <div data-ng-repeat="task in vm.tasks">
+          <p>{{task}}</p>
+        </div>
     </main>
   </body>
 </html>
