@@ -7,6 +7,7 @@
 
   function TaskController() {
     var vm = this;
+    vm.data = data;
   }
 
 })();
