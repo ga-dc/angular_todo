@@ -3,6 +3,7 @@
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
+     <link rel="stylesheet" href="style.css">
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
@@ -12,10 +13,13 @@
       <div ng-repeat="tasks in vm.tasks">
         <form name="myForm" data-ng-controller="todo_controller as vm">
           <label>
-            <input type="radio" ng-model="value" ng-value="tasks" ng-class="task">{{ tasks }}
+            <input type="checkbox" data-ng-model="tasks.done">
+              <span class="done-{{tasks.done}}">{{ tasks.task }}</span>
+            </input>
           </label>
         </form>
       </div>
+      <button data-ng-click="vm.delete()">Clear Completed</button>
       <form name="addToDo">
         <input type="text" data-ng-model="vm.formToDoText">
         <button data-ng-click="vm.create()">Add</button>

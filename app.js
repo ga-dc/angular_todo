@@ -8,35 +8,36 @@
   function ToDoController() {
     var vm = this;
     vm.tasks = [
-      "Finish to-do list homework",
-      "Learn AngularJS",
-      "Go to the gym...jk",
-      "Make lunches for the week"
+      {
+        task: "Finish to-do list homework",
+        done: false
+      },
+      {
+        task: "Learn AngularJS",
+        done: false
+      },
+      {
+        task: "Make lunches for the week",
+        done: false
+      }
     ];
 
     vm.create = function() {
-      vm.tasks.push(vm.formToDoText);
-      
+      vm.tasks.push({task: vm.formToDoText, done: false});
+
       vm.formToDoText = '';
     }
 
     vm.delete = function() {
-      $(".task").on("click", function(){
-        var self = this;
-        var task = $(self).val();
+      for (var i=0; i<vm.tasks.length; i++) {
+        if (vm.tasks[i].done) {
+          vm.tasks.splice(i, 1);
+        }
+      }
+    }
 
-        $.ajax({
-          type: 'DELETE',
-          data: vm.task,
-          dataType: 'json',
-        }).done(function(response){
-          console.log(response)
-        }).fail(function(response){
-          console.log("Ajax get request failed");
-        }).always(function(response){
-          console.log("Always!")
-        })
-      })
+    vm.edit = function() {
+      
     }
   };
 })();
