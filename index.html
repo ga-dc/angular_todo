@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-  <html lang="en">
+  <html lang="en" data-ng-app="todo">
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
+     <script type="text/javascript" src="app.js"></script>
   </head>
   <body>
-    <h1>To Do!</h1>
+      <div data-ng-controller="todo_controller as vm">
+          <h1>To Do!</h1>
+          {{vm.hello}}
+          <input type="text" data-ng-model="vm.new_todo.string">
+          <button ng-click="vm.create()">Create</button>
+
+          <div ng-repeat="text in vm.data">
+                <p>{{text.string}}</p>
+                <button type="button" name="button" ng-click="vm.edit()">Edit</button>
+                <button ng-click="vm.delete()">Delete</button>
+          </div>
+      </div>
   </body>
 </html>
