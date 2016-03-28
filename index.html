@@ -3,6 +3,9 @@
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
+     <script>
+     var tasks = [{name: 'dinner', note: 'get started'}];
+     </script>
   </head>
   <body data-ng-app="toDoApp">
     <h1>To Do!</h1>
@@ -14,6 +17,7 @@
           <tr>
             <td>No.</td>
             <th>Task</th>
+            <th>Notes</th>
             <th>Done</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -22,7 +26,8 @@
           <tr data-ng-repeat="task in vm.tasks">
             <td id="row-index">{{$index + 1}}</td>
             <td>{{task.name}}</td>
-            <td><input type="checkbox" name="check" label="checkbox" id="task-check"></td>
+            <td><input type="textarea" label="task-notes-section" data-ng-model="task.note" id="notes-field" placeholder="add notes"></td>
+            <td><input type="checkbox" label="checkbox" data-ng-model="vm.task.done" id="task-check"></td>
             <td><button label="edit-button" data-ng-click="vm.editTask()" id="edit-btn">Edit Task</td>
             <td><button label="delete-button" data-ng-click="vm.deleteTask(task)" id="delete-btn">Delete Task</td>
           </tr>
@@ -30,7 +35,7 @@
       </table>
 
       <form>
-        <input type="text" name="add-task" label="task-input" placeholder="enter new task" id="task-field">
+        <input type="text" name="add-task" label="task-input" id="task-field" placeholder="enter new task">
         <input data-ng-click="vm.taskAdder()" type="button" value="Add Task" id="create-btn">
       </form>
 

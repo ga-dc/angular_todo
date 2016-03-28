@@ -2,7 +2,8 @@
 
 (function(){
   angular.module('toDoApp', []).controller('list_controller', ListController);
-  var tasks = [{name: 'dinner'}];
+
+
   function ListController(){
     var vm = this;
     vm.tasks = tasks;
@@ -10,7 +11,9 @@
       var taskBox = document.getElementById('task-field').value;
       if(taskBox !== '') {
         vm.tasks.push({
-          name: taskBox
+          name: taskBox,
+          // done: false,
+          note: ''
         });
       }
       document.getElementById('task-field').value = '';
@@ -20,5 +23,10 @@
       var index = vm.tasks.indexOf(task);
       vm.tasks.splice(index, 1);
     };
+    vm.editTask = function(){
+      console.log('editing goin on')
+
+    }
   }
+
 })();
