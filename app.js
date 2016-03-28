@@ -15,7 +15,10 @@
       }
       document.getElementById('task-field').value = '';
     };
-    vm.deleteTask = function(){
+    vm.deleteTask = function(task){
+      console.log('hey');
+      var index = vm.tasks.indexOf(task);
+      vm.tasks.splice(index, 1);
     };
   }
 })();
