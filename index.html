@@ -6,7 +6,20 @@
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
-  <body>
+  <body data-ng-app="todo">
     <h1>To Do!</h1>
+    <div data-ng-controller="todo_controller as vm">
+      <div ng-repeat="tasks in vm.tasks">
+        <form name="myForm" data-ng-controller="todo_controller as vm">
+          <label>
+            <input type="radio" ng-model="value" ng-value="tasks" ng-class="task">{{ tasks }}
+          </label>
+        </form>
+      </div>
+      <form name="addToDo">
+        <input type="text" data-ng-model="vm.formToDoText">
+        <button data-ng-click="vm.create()">Add</button>
+      </form>
+    </div>
   </body>
 </html>
