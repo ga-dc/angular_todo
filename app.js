@@ -16,7 +16,6 @@
       document.getElementById('task-field').value = '';
     };
     vm.deleteTask = function(){
-      
     };
   }
 })();
