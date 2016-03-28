@@ -12,12 +12,11 @@ Here are some things the instructors have written that may be helpful:
 
 Users should be able to...
 
-- View all tasks
 - Add a new task
+- View all tasks
 - Edit an existing task
 - Delete an existing task
 
 ## Bonus
 
 Deploy it to Github Pages!
-
