@@ -21,7 +21,7 @@
         vm.edit = function(index, item){
             vm.data[index] = item.edit_todo;
         };
-        
+
         vm.delete = function(text){
             var index = vm.data.indexOf(text);
             vm.data.splice(index, 1);

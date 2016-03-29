@@ -3,8 +3,11 @@
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script type="text/javascript" src="app.js"></script>
+
   </head>
   <body>
       <div data-ng-controller="todo_controller as vm">
@@ -17,7 +20,7 @@
                 <input type="text" data-ng-model="item.edit_todo.task">
                 <button type="button" name="button" ng-click="vm.edit
                 ($index, item)">Edit</button>
-                <button ng-click="vm.delete(item)">Delete</button>
+                <button ng-click="vm.delete(item)"><i class="fa fa-times"></i></button>
           </div>
       </div>
   </body>
