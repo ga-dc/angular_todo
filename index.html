@@ -15,7 +15,6 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <td data-ng-click="vm.is_descending = !(vm.is_descending)">Task Number</td>
               <th data-ng-click="vm.sort_data_by('priority')">Priority</th>
               <th>Title</th>
               <th>Description</th>
@@ -24,13 +23,43 @@
             </tr>
           </thead>
           <tbody>
-            <tr data-ng-repeat="task in vm.data | filter: vm.filter_on | orderBy: vm.sort_on : vm.is_descending">
-              <td>{{$index + 1}}</td>
-              <td>{{task.priority}}</td>
-              <td>{{task.title}}</td>
-              <td>{{task.description}}</td>
-              <td>{{task.ettc}}</td>
-              <td data-ng-click="vm.destroy(task)">&cross;</td>
+            <tr data-ng-repeat="task in vm.data | orderBy: vm.sort_on : vm.is_descending">
+              <td>
+                <div data-ng-hide="task.edit">{{task.priority}}</div>
+                <div data-ng-show="task.edit"><input type="number" data-ng-model="task.priority" placeholder={{task.priority}}/></div>
+              </td>
+              <td>
+                <div data-ng-hide="task.edit">{{task.title}}</div>
+                <div data-ng-show="task.edit"><input type="text" data-ng-model="task.title" placeholder={{task.title}}/></div>
+              </td>
+              <td>
+                <div data-ng-hide="task.edit">{{task.description}}</div>
+                <div data-ng-show="task.edit"><input type="text" data-ng-model="task.description" placeholder={{task.description}}/></div>
+              </td>
+              <td>
+                <div data-ng-hide="task.edit">{{task.ettc}}</div>
+                <div data-ng-show="task.edit"><input type="number" data-ng-model="task.ettc" placeholder={{task.ettc}}/></div>
+              </td>
+              <td>
+                <span data-ng-hide="task.edit"  data-ng-click="vm.modify(task)">&#9998; &nbsp;</span>
+                <span data-ng-show="task.edit" data-ng-click="vm.update(task)">&#10004;  &nbsp;</span>
+                <span data-ng-click="vm.destroy(task)">&cross;</span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="1">
+                <input type = "number" data-ng-model="vm.new_task.priority" placeholder="Priority"/>
+              </td>
+              <td>
+                <input type = "text" data-ng-model="vm.new_task.title" placeholder="Title" />
+              </td>
+              <td>
+                <input type = "text" data-ng-model="vm.new_task.description" placeholder="Description" />
+              </td>
+              <td>
+                <input type = "number" data-ng-model="vm.new_task.ettc" placeholder="Est. Time Required" />
+              </td>
+              <td data-ng-click="vm.create()">&plus;</td>
             </tr>
           </tbody>
         </table>
