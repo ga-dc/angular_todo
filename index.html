@@ -16,7 +16,7 @@
           <thead>
             <tr>
               <th data-ng-click="vm.sort_data_by('priority')">Priority</th>
-              <th>Title</th>
+              <th>Task</th>
               <th>Description</th>
               <th data-ng-click="vm.sorta_data_by('ettc')">Estimated Time to Complete</th>
               <th></th>
@@ -26,19 +26,19 @@
             <tr data-ng-repeat="task in vm.data | orderBy: vm.sort_on : vm.is_descending">
               <td>
                 <div data-ng-hide="task.edit">{{task.priority}}</div>
-                <div data-ng-show="task.edit"><input type="number" data-ng-model="task.priority" placeholder={{task.priority}}/></div>
+                <div data-ng-show="task.edit"><input type="number" data-ng-model="task.priority" value={{task.priority}}/></div>
               </td>
               <td>
                 <div data-ng-hide="task.edit">{{task.title}}</div>
-                <div data-ng-show="task.edit"><input type="text" data-ng-model="task.title" placeholder={{task.title}}/></div>
+                <div data-ng-show="task.edit"><input type="text" data-ng-model="task.title" value={{task.title}}/></div>
               </td>
               <td>
                 <div data-ng-hide="task.edit">{{task.description}}</div>
-                <div data-ng-show="task.edit"><input type="text" data-ng-model="task.description" placeholder={{task.description}}/></div>
+                <div data-ng-show="task.edit"><input type="text" data-ng-model="task.description" value={{task.description}}/></div>
               </td>
               <td>
                 <div data-ng-hide="task.edit">{{task.ettc}}</div>
-                <div data-ng-show="task.edit"><input type="number" data-ng-model="task.ettc" placeholder={{task.ettc}}/></div>
+                <div data-ng-show="task.edit"><input type="number" data-ng-model="task.ettc" value={{task.ettc}}/></div>
               </td>
               <td>
                 <span data-ng-hide="task.edit"  data-ng-click="vm.modify(task)">&#9998; &nbsp;</span>
@@ -51,7 +51,7 @@
                 <input type = "number" data-ng-model="vm.new_task.priority" placeholder="Priority"/>
               </td>
               <td>
-                <input type = "text" data-ng-model="vm.new_task.title" placeholder="Title" />
+                <input type = "text" data-ng-model="vm.new_task.title" placeholder="Task" />
               </td>
               <td>
                 <input type = "text" data-ng-model="vm.new_task.description" placeholder="Description" />
