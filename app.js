@@ -6,6 +6,16 @@
 
   function TaskController(){
     var vm = this;
-    vm.data = data;
+    vm.data = [];
+  }
+
+  // vm.edit = function(){
+  //   vm.data
+  // }
+
+  vm.create = function(){
+    vm.data.push(angular.copy(vm.new_task));
+    vm.new_task = {};
+  }
   }
 })();

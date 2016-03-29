@@ -9,15 +9,9 @@
 <body class="container" data-ng-app="task">
   <h1>To Do!</h1>
   <h2>Task</h2>
-  <table>
-    <thead>
-      <tbody>
-      <tr data-ng-repreat="product in vm.data">
-        <td>.</td>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Notes</th>
-      </tr>
-    </thead>
+  <div>Name</div>
+  <input type="textarea" data-ng-model="task.name" />
+  <div>Date</div>
+  <input type="textarea" data-ng-model="task.date" />
   </body>
   </html>
