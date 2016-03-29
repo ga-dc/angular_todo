@@ -1,7 +1,19 @@
 .items {
-color: red;
+color: grey;
 }
 
-.button {
+.addButton {
   background: green;
+}
+
+.editButton{
+  background-color: green;
+
+}
+.delButton{
+  background-color: red;
+
+}
+.done-true {
+  text-decoration: line-through;
 }

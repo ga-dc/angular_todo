@@ -14,21 +14,30 @@
   <div data-ng-controller = "TodoListController as todoList">
 
     <div data-ng-repeat="todos in todoList.todos">
-      <div class=items> {{todos.text}} </div>
+      <div class=items> {{todos.text}}
+<!-- edit button -->
+      <input class="editButton" type="submit" value="Update" ng-click = "editable = !editable ">
+  <!-- edit input field  -->
+    <form ng-show="editable">
+      <input type="text" ng-model="todos.text">
+    </form>
+<!-- delete button -->
+      <input class="delButton" type="submit" value="delete" ng-click = "todoList.itemDelete($index)">
+
+
+</div>
     </div>
 
     <form>
-
+      <!-- form and add button -->
       <input type="text" ng-model="todoList.todoText" placeholder="New to do item">
 
-      <input class="button" type="submit" value="add" ng-click = "todoList.itemAdded()">
-
+      <input class="addButton" type="submit" value="add" ng-click = "todoList.itemAdded()">
     </form>
 
   </div>
 
 
-<!-- create from for input -->
 
 </body>
 </html>

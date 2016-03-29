@@ -7,18 +7,29 @@
 // TodoListController is the name of the controller
 angular.module("todoApp", [])
 .controller("TodoListController", function(){
+  var vm = this
   var todoList =  [
     {text:"Declare that Bipin is invincible", done:true},
     {text:"Make sun revolve around me", done:true},
+    {text:"Let Adrian W. hug me", done:true},
     {text:"Learn basic programming", done:false}
   ];
-  this.todos = todoList;
+  vm.todos = todoList;
 
 
-this.itemAdded = function(){
-todoList.push({text:this.todoText, done:false})
+vm.itemAdded = function(){
+todoList.push({text:vm.todoText, done:false})
 };
+// $index is ng-repeats side effect which is in thtml file. and im passing index as a place holder so splice can be mapped.
+vm.itemDelete = function(index){
+  todoList.splice(index, 1)
+};
+vm.itemEdit = function(){
+  todoList.edit({text:vm.todoText})
+}
+
 });
+
 
 
 
@@ -29,7 +40,7 @@ todoList.push({text:this.todoText, done:false})
 // );
 //
 //   function ControllerFunction(){
-//     var vm = this;
+//     var vm = vm;
 //     vm.list = [
 //       "eat food",
 //               "drink water",
