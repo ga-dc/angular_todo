@@ -14,10 +14,9 @@ angular.module("todoApp", [])
   ];
   this.todos = todoList;
 
-todoList.addTodo = function(){
-  todoList.todos.push({text:todoList.todoText, done:false});
-  todoList.todoText = "";
 
+this.itemAdded = function(){
+todoList.push({text:this.todoText, done:false})
 };
 });
 
