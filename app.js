@@ -18,7 +18,7 @@ var todoList = [
     vm.todoList = todoList;
     vm.new_task = {};
     vm.create = function(){
-      vm.data.push(angular.copy(vm.new_task));
+      vm.todoList.push(vm.new_task);
       vm.new_task = {};
     }
 
