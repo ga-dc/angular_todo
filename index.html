@@ -1,24 +1,39 @@
 <!DOCTYPE html>
-  <html lang="en">
+  <html lang="en" Data-ng-app="toDo">
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
-  <body>
+  <body Data-ng-controller="toDoController as vm">
     <h1>To Do!</h1>
     <table>
       <tr>
         <th>Date</th>
         <th>Task</th>
         <th>Complete By</th>
+        <th>Action</th>
       </tr>
       <tr>
         <td> 3/28/16</td>
         <td>Item #1</td>
         <td>4/1/16</td>
+        <td>Action</td>
       </tr>
+      <tr>
+       <td colspan="2">
+         <input type="text" data-ng-model="vm.date" placeholder="date" />
+       </td>
+       <td>
+         <input type="text" data-ng-model="vm.task" placeholder="task" />
+      </td>
+       <td>
+         <input type="text" data-ng-model="vm.complete_by" placeholder="complete_by" />
+       </td>
+       <td data-ng-click="vm.create()">&plus;</td>
+     </tr>
     </table>
+    <h2>{{vm.test}}</h2>
   </body>
 </html>
