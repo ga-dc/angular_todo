@@ -2,7 +2,10 @@
 
 (function(){
   angular
-  .module("todo", [])
+  .module("todo", [
+    "xeditable",
+    "dndLists"
+  ])
   .controller("todo_controller", TodoController);
 
   function TodoController() {
@@ -19,9 +22,11 @@
     };
 
     vm.clearCompleted = function(){
-        for(i = 0; vm.todos.length; i++) {
-          vm.todos = !todo.done;
-      }
+      for (var i = 0; i < vm.todos.length; i++) {
+          if (vm.todos[i].done) {
+             vm.todos.splice(i, 1);
+          };
+      };
     };
   };
 })();
