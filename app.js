@@ -2,7 +2,13 @@
 
 (function(){
   angular
-  .module("toDo", [
-    
-  ])
-})
+  .module("toDo")
+  .controller("ToDoIndexController", [
+    "ToDoList",
+    ToDoIndexControllerFunction
+  ]);
+
+  function ToDoIndexControllerFunction( ToDoList ) {
+    this.toDo = ToDoList.query();
+  }
+}());
