@@ -11,11 +11,11 @@
     <main data-ng-controller="todo_controller as vm">
       <div colspan="1">
         <input type="text" data-ng-model="vm.task" placeholder="New Task" />
-        <p data-ng-click="vm.create()">&plus;</p>
+        <p><button data-ng-click="vm.create()">&plus;</button></p>
       </div>
         <div data-ng-repeat="task in vm.tasks track by $index">
-            {{task}}
-            <p data-ng-click="vm.destroy(task)">&cross;</p>
+            <div contentEditable='true'>{{task}}</div>
+            <p><button data-ng-click="vm.destroy(task)">&cross;</button></p>
         </div>
     </main>
   </body>
