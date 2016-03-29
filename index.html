@@ -16,7 +16,9 @@
         <li>
           <span>{{ todo }}</span>
           <button ng-click="vm.delete(todo)" >Delete</button>
+          <input type="text" class="txt" placeholder="edit" ng-model="vm.editTodo" ng-keyup="vm.add($event)" />
           <button ng-click="vm.edit(todo)" >Edit</button>
+
         </li>
       </ul>
 
