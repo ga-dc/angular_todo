@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-  <html lang="en" data-ng-app="todolist">
+  <html lang="en">
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
-  <body data-ng-controller="app_controller as tool">
-    <main>
+
+
+  <body data-ng-app="todolist">
     <h1>What I have to do!</h1>
-    <h2>{{tool.list}}</h2>
-  </body>
+
+    <div data-ng-controller="app_controller as vm">
+
+      <div data-ng-repeat="task in vm.list">
+        <h2>{{task}}</h2>
+
+      </div>
+
+      <div data-ng-click="vm.create()">add item
+
+
+      </div>
+
+    </div>
+</body>
 </html>

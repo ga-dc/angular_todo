@@ -5,15 +5,24 @@
 
 (function(){
 angular
-.module('todolist', []);
-.controller('app_controller', ControllerFunction);
+.module("todolist", [])
+.controller("app_controller", ControllerFunction);
 
   function ControllerFunction(){
     var vm = this;
-    vm.list = [ "eat food",
-                "take shit",
-                "code",
-                "sleep"
+    vm.list = [
+      "eat food",
+              "drink water",
+              "code",
+              "sleep"
               ];
+
+vm.new_item = {};
+vm.create = function() {
+  vm.list.push(angular.copy(vm.new_item));
+  vm.new_item = {};
+}
+ };
+
 
 })();
