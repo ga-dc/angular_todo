@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-  <html lang="en">
+  <html data-ng-app="todo">
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
-  <body>
+  <body data-ng-controller="todo_list as vm">
     <h1>To Do!</h1>
     <table>
       <thead>
@@ -16,8 +16,8 @@
           </th>
         </tr>
       <tbody>
-        <tr>
-          <td></td>
+        <tr data-ng-repeat="todo in vm.todoList">
+          <td>{{todo.task}}</td>
         </tr>
       </tbody>
     </table>

@@ -4,8 +4,8 @@ var todoList = [
   {task: "Walk the dog"},
   {task: "Take out the trash"},
   {task: "Buy groceries"},
-  {task: "Call mom"};
-  {task: "Clean the house"};
+  {task: "Call mom"},
+  {task: "Clean the house"}
 ];
 
 (function(){
@@ -14,7 +14,8 @@ var todoList = [
     .controller("todo_list", ToDoList);
 
   function ToDoList(){
-    
+    var vm = this;
+    vm.todoList = todoList;
   }
 
 })();
