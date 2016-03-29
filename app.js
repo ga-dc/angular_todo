@@ -21,7 +21,8 @@
       viewmod.new_task = {};
     };
     viewmod.edit = function(){
-      console.log("I put the U in CRUD");
+      console.log("Is this not the edit function you're looking for?");
+      }
     };
   }
 })();
