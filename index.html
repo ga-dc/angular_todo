@@ -9,8 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script src="xeditable.min.js"></script>
     <script src="data.js"></script>
+    <script src="xeditable.min.js"></script>
     <script src="app.js"></script>
   </head>
   <body class="container" data-ng-app="todo">
@@ -19,7 +19,6 @@
     </header>
 
     <main data-ng-controller="todo_controller as vm">
-      <!-- <input type="text" class="form-control"/> -->
       <table class="table table-striped">
         <thead>
           <tr>
@@ -29,7 +28,7 @@
         <tbody>
           <tr data-ng-repeat="todo in vm.data">
             <td>{{$index + 1}}</td>
-            <td><a href="#">{{todo.task}}</a></td>
+            <td><a href="#" editable-text="todo.task">{{todo.task || "empty"}}</a></td>
             <td data-ng-click="vm.destroy(todo)">&cross;</td>
           </tr>
           <tr>

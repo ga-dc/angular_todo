@@ -2,7 +2,9 @@
 
 (function(){
   angular
-  .module("todo", [])
+  .module("todo", [
+    "xeditable"
+  ])
   .controller("todo_controller", TodoController);
 
   function TodoController() {
