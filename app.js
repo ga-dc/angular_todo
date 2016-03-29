@@ -1,7 +1,6 @@
 angular.module('Todo', [])
        .controller('TodoController', function() {
          var vm = this;
-         vm.message = 'This is a message.';
          vm.newTodo = '';
          vm.todos = [
             "Grocery shop",
@@ -19,8 +18,6 @@ angular.module('Todo', [])
                vm.newTodo = '';
              }
            };
-
-
 
 
 
