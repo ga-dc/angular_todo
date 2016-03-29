@@ -3,7 +3,15 @@
 (function(){
 angular
 .module("todo" ,[] )
-.controller("todoController",something )
+.controller("todoController",ControllerFunction);
 
+  function ControllerFunction(){
+    var vm = this;
+    
+
+
+
+
+}
 
 })();
