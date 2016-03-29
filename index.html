@@ -16,7 +16,7 @@
           <div ng-repeat="text in vm.data">
                 <p>{{text.string}}</p>
                 <button type="button" name="button" ng-click="vm.edit()">Edit</button>
-                <button ng-click="vm.delete()">Delete</button>
+                <button ng-click="vm.delete(text)">Delete</button>
           </div>
       </div>
   </body>
