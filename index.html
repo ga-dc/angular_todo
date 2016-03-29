@@ -12,20 +12,37 @@
   </head>
   <body data-ng-app="todo">
     <div data-ng-controller="todo_controller as vm">
+      <div class="list">
       <h1>To Do!</h1>
         <form>
           <input type="text" data-ng-model="vm.formTodoText" data-ng-model-instant>
           <button data-ng-click="vm.addTodo()">Add</button>
         </form>
-        <ul dnd-list="todos">
-          <li data-ng-repeat="todo in vm.todos">
+        <ul dnd-list="vm.todos">
+          <li
+          data-ng-repeat="todo in vm.todos"
+          data-ng-hide="todo.done"
+          dnd-draggable="todo"
+          dnd-moved="vm.todos.splice($index, 1)"
+          dnd-effect-allowed="move"
+          dnd-selected="models.selected = todo"
+          ng-class="{'selected': models.selected === todo}">
             <input type="checkbox" data-ng-model="todo.done">
             <a class="done-{{todo.done}}" href="#" editable-text="todo.text">{{todo.text || "empty" }}</a>
           </li>
-          <li> {{vm.formTodoText}} </li>
+            {{vm.formTodoText}}
         </input>
         </ul>
-      <button data-ng-click="vm.clearCompleted()"> Remove Completed </button>
+        <ul>
+          <li
+          data-ng-repeat="todo in vm.todos"
+          data-ng-show="todo.done">
+          <input type="checkbox" data-ng-model="todo.done">
+          <a class="done-{{todo.done}}" href="#" editable-text="todo.text">{{todo.text || "empty" }}</a>
+        </li>
+
+      <!-- <button data-ng-click="vm.clearCompleted()"> Remove Completed </button> -->
     </div>
+  </div>
   </body>
 </html>

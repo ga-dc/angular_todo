@@ -22,11 +22,15 @@
     };
 
     vm.clearCompleted = function(){
+          console.log(vm.todos)
       for (var i = 0; i < vm.todos.length; i++) {
+
           if (vm.todos[i].done) {
              vm.todos.splice(i, 1);
           };
       };
+      console.log(vm.todos)
     };
+    // console.log(vm.todos)
   };
 })();
