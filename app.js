@@ -20,5 +20,8 @@
       viewmod.data.push(angular.copy(viewmod.new_task));
       viewmod.new_task = {};
     };
+    viewmod.edit = function(){
+      console.log("I put the U in CRUD");
+    };
   }
 })();
