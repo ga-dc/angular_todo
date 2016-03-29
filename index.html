@@ -19,6 +19,12 @@
         <tr data-ng-repeat="todo in vm.todoList">
           <td>{{todo.task}}</td>
         </tr>
+        <tr>
+          <td>
+            <input type="text" data-ng-model="vm.new_task.task" placeholder="New task"/>
+          </td>
+            <td data-ng-click="vm.create()">+</td>
+        </tr>
       </tbody>
     </table>
   </body>

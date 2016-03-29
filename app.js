@@ -16,6 +16,13 @@ var todoList = [
   function ToDoList(){
     var vm = this;
     vm.todoList = todoList;
-  }
+    vm.new_task = {};
+    vm.create = function(){
+      vm.data.push(angular.copy(vm.new_task));
+      vm.new_task = {};
+    }
 
+
+
+  }
 })();
