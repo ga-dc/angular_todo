@@ -1,21 +1,25 @@
-"use strict"
+"use strict";
 (function(){
   angular
   .module("task",[])
-  .controller("task_controller", TaskController);
+  .controller("taskController", ControllerFunction);
 
-  function TaskController(){
+  function ControllerFunction(){
     var vm = this;
-    vm.data = [];
-  }
+    vm.task = task;
 
-  // vm.edit = function(){
-  //   vm.data
-  // }
+  };
 
+  vm.new_task = {};
   vm.create = function(){
-    vm.data.push(angular.copy(vm.new_task));
-    vm.new_task = {};
+    vm.task.push(angular.copy(vm.new_task));
+    vm.new_task= {};
+  };
   }
-  }
+  //
+  // vm.edit = function(index){
+  //       var tasks = vm.task[index];
+  //       vm.new_task = task;
+  //     };
+
 })();

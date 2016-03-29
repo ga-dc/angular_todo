@@ -5,13 +5,19 @@
   <title>Angular ToDo App</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
   <script src="app.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body class="container" data-ng-app="task">
+
+<body data-ng-app="task">
   <h1>To Do!</h1>
-  <h2>Task</h2>
-  <div>Name</div>
-  <input type="textarea" data-ng-model="task.name" />
-  <div>Date</div>
-  <input type="textarea" data-ng-model="task.date" />
-  </body>
-  </html>
+
+  <div data-ng-controller='taskController as vm'>
+
+    <p data-ng-show="!editTasks">{{new_task}}</p>
+    <input type="text" name="task" data-ng-model="new_task">
+  </div>
+
+
+
+</body>
+</html>
