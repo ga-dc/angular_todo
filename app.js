@@ -12,6 +12,16 @@ angular.module('Todo', [])
             var indexOf = vm.todos.indexOf(todo);
                 vm.todos.splice(indexOf, 1);
             };
+
+          vm.edit = function(todo) {
+            var indexOf = vm.todos.indexOf(todo);
+                vm.todos.splice(indexOf, 1);
+            };
+
+
+
+
+
           vm.add = function(e) {
              if (e.which && e.which === 13) {
                vm.todos.push(vm.newTodo);
