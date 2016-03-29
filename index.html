@@ -9,7 +9,17 @@
   <body data-ng-app="myTodo">
     <h1>Welcome to my To-Do List!</h1>
     <main data-ng-controller="myTodo_controller as vm">
-      <h2>{{vm.hello}}</h2>
+      <div class="list">
+        <input type="checkbox"/>
+        <label class="edit label">Sample Task</label>
+        <input class="edit" type="text"/>
+      </div>
+      <div class="actions">
+        <button>edit</button>
+        <button>save</button>
+        <button>delete</button>
+      </div>
+
    </main>
   </body>
 </html>

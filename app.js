@@ -7,6 +7,6 @@
 
   function myTodoController(){
     var vm = this;
-    vm.hello = "Hello, world!";
+    vm.data = data;
     }
   })();
