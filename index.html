@@ -1,12 +1,15 @@
 <!DOCTYPE html>
   <html lang="en">
-  <head ng-app="myTodo">
+  <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
-  <body>
-    <h1>To Do!</h1>
+  <body data-ng-app="myTodo">
+    <h1>Welcome to my To-Do List!</h1>
+    <main data-ng-controller="myTodo_controller as vm">
+      <h2>{{vm.hello}}</h2>
+   </main>
   </body>
 </html>
