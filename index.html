@@ -10,10 +10,10 @@
     <h1>Welcome to my To-Do List!</h1>
     <div class="list" data-ng-controller="vm">
       <input ng-model="todo.completed" type="checkbox"/>
-      <label class="edit label"> {{todo.name}} </label>
-      <input ng-model="todo.name" class="edit" type="text"/>
+      <label ng-hide="edit" class="edit label"> {{todo.name}} </label>
+      <input ng-show="edit" ng-model="todo.name" class="edit" type="text"/>
       <div class="actions">
-        <button>edit</button>
+        <button ng-click="edit = !edit">edit</button>
         <button>save</button>
         <button>delete</button>
       </div>
