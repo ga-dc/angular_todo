@@ -10,20 +10,15 @@
   <body data-ng-app="todo">
     <h1>To Do!</h1>
     <div data-ng-controller="todo_controller as vm">
-      <div ng-repeat="tasks in vm.tasks">
-        <form name="myForm" data-ng-controller="todo_controller as vm">
-          <label>
-            <input type="checkbox" data-ng-model="tasks.done">
-              <span class="done-{{tasks.done}}">{{ tasks.task }}</span>
-            </input>
-          </label>
-        </form>
-      </div>
-      <button data-ng-click="vm.delete()">Clear Completed</button>
       <form name="addToDo">
         <input type="text" data-ng-model="vm.formToDoText">
         <button data-ng-click="vm.create()">Add</button>
       </form>
+
+      <div ng-repeat="task in vm.tasks">
+        <span class="close" data-ng-click="vm.delete($index)">X</span>
+        <span class="done-{{task.done}}" value="{{task.task}}" contentEditable="true">{{ task.task }}</span>
+      </div>
     </div>
   </body>
 </html>
