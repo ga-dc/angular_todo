@@ -1,12 +1,41 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-     <meta charset="UTF-8">
-     <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
-  </head>
-  <body>
-    <h1>To Do!</h1>
+<html lang="en" data-ng-app="todo">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular ToDo App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="data.js"></script>
+</head>
+<body data-ng-controller="todo_controller as vm">
+  <h1>To Do!</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <p>Search, add, delete, or edit a task  (edit by clicking on task to be changed).</p>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <p>Search: <input data-ng-model="query" placeholder="insert search"/></p>
+        </th>
+        <th>
+          <p>Add Task: <input type="text" data-ng-model="vm.new_todo.task" placeholder="insert task" />
+            <button data-ng-click="vm.create()">+</button></p>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-ng-repeat="todo in vm.task | filter: query"  contenteditable="true">
+          <td>
+            <p>({{$index + 1}})  {{todo.task}}    </p>
+          </td>
+          <td>
+            <button data-ng-click="vm.delete($index)">x</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
-</html>
+  </html>
