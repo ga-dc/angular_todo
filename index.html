@@ -1,12 +1,45 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-     <meta charset="UTF-8">
-     <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
-  </head>
-  <body>
-    <h1>To Do!</h1>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular ToDo App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body data-ng-app="toDoApp">
+  <h1>"Things to Do Today" by Big Black</h1>
+  <main data-ng-controller="itemsController as vm">
+    <table>
+      <thead>
+        <tr>
+          <th>Task Number</th>
+          <th>Task Name</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-ng-repeat="item in vm.toDoItems" data-ng-click="toggleEditing(item)">
+          <td>{{$index + 1}}</td>
+          <td>
+            <span ng-hide="editing" ng-click="editing = true">{{item.task}}</span>
+            <form ng-show="editing" ng-submit="editing = false">
+              <label>Task:</label>
+              <input type="text" data-ng-model="item.task" placeholder="{{item.task}}" ng-required/>
+              <button class="btn" type="submit">Save</button>
+            </form>
+          </td>
+          <td data-ng-click="vm.destroy($index)">&#9760;</td>
+        </tr>
+        <tr>
+          <td colspan="3">*******************************************</td>
+        </tr>
+        <tr>
+          <td>New Task</td>
+          <td><input type="text" data-ng-model="vm.new_item.task" placeholder="Task"></td>
+          <td data-ng-click="vm.create();">(&plus;)</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
 </html>
