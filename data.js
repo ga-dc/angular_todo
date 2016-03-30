@@ -1,18 +1,18 @@
 var tasks = [
   {
     taskContent: "Do Homework",
-    dueDate: "Tomorrow"
+    dueDate: 3/28/2016,
   },
   {
     taskContent: "Learn JavaScript",
-    dueDate: "Yesterday"
+    dueDate: 2/14/2016,
   },
   {
     taskContent: "Hug Bipin",
-    dueDate: "Today"
+    dueDate: 3/30/2016,
   },
   {
     taskContent: "Build the SuperApp",
-    dueDate: "Next Week"
+    dueDate: 4/2/2016,
   }
 ];

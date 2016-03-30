@@ -4,17 +4,40 @@
   <meta charset="UTF-8">
   <title>toDo</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-
+  <!-- <script src="angular.js"></script> -->
   <script src="data.js"></script>
   <script type="text/javascript" src="app.js"></script>
-  <!-- <script src="angular.js"></script> -->
-
 </head>
 <body ng-controller="TBController as tb">
   <h1>Task Bastard</h1>
-  <div ng-repeat="task in tb.tasks">
-    <h2>{{task.taskContent}}</h2>
-    <h3>{{task.dueDate}}</h3>
+  <div ng-repeat="task in tb.tasks | orderBy: -dueDate">
+    <div class="post-it" contenteditable ng-model="text">
+      <h2>{{task.taskContent}}</h2>
+      <h3>{{"due: "}}{{task.dueDate | date:'MM/dd/yyyy'}}</h3>
+    </div>
+    <section>
+      <ul class="tab-bar">
+        <li ng-class="{active:tab === 1 }">
+          <a href ng-click="tab = 1">new</a>
+        </li>
+        <li ng-class="{active:tab === 2 }">
+          <a href ng-click="tab = 2">edit</a></li>
+        <ling-class="{active:tab === 3 }">
+        <a href ng-click="tab = 3">delete</a></li>
+      </ul>
+    </section ng-init="tab = 1">
+    <div class="new" ng-show="tab === 1">
+      <p>new task</p>
+      <p>{{task.newTask}}</p>
+    </div>
+    <div class="edit" ng-show="tab === 1">
+      <p>edit task</p>
+      <p>{{task.editTask}}</p>
+    </div>
+    <div class="delete" ng-show="tab === 1">
+      <p>delete task</p>
+      <p>{{task.deleteTask}}</p>
+    </div>
   </div>
 </body>
 </html>
