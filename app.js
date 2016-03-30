@@ -6,20 +6,32 @@
 
   function ControllerFunction(){
     var vm = this;
-    vm.task = task;
+    vm.tasks = [
+      {text: "eat lunch"}
+    ];
 
-  };
 
-  vm.new_task = {};
+
+
   vm.create = function(){
-    vm.task.push(angular.copy(vm.new_task));
-    vm.new_task= {};
+    console.log("hello");
+    vm.tasks.push({text: vm.new_task});
+    vm.new_task = "";
   };
+
+
+  vm.edit = function(task){
+    console.log(task);
+    task.isediting = true;
+        // var tasks = vm.task[index];
+        // vm.new_task = task;
+      };
+
+  vm.update = function(){
+    console.log(task);
+    task.update = true;
   }
-  //
-  // vm.edit = function(index){
-  //       var tasks = vm.task[index];
-  //       vm.new_task = task;
-  //     };
+        };
+
 
 })();

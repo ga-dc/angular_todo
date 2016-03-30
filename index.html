@@ -13,11 +13,23 @@
 
   <div data-ng-controller='taskController as vm'>
 
-    <p data-ng-show="!editTasks">{{new_task}}</p>
-    <input type="text" name="task" data-ng-model="new_task">
+<form data-ng-submit="vm.create()">
+    <input type="text" name="task" data-ng-model="vm.new_task">
+
+
+    <button>submit</button>
+</form>
+    <ul>
+      <li data-ng-repeat="task in vm.tasks" data-ng-click="vm.edit(task)">
+        <span data-ng-hide="task.isediting">
+        {{task.text}}
+      </span>
+      <input contenteditable="true"  value="{{task.text}}">
+
+
+
+      </li>
+    </ul>
   </div>
-
-
-
 </body>
 </html>
