@@ -11,13 +11,6 @@
     var vm = this;
     vm.data = data;
 
-    vm.edit = function(todo){
-      console.log("Clicked");
-      var index = vm.data.indexOf(todo);
-      vm.data[index].task = ("Edit Me");
-      // $(vm.data[index].task).append("<span>Edit Me</span>");
-    };
-
     vm.destroy = function(todo){
       var index = vm.data.indexOf(todo);
       vm.data.splice(index, 1);
