@@ -18,13 +18,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr data-ng-repeat="item in vm.toDoItems">
+        <tr data-ng-repeat="item in vm.toDoItems" data-ng-click="toggleEditing(item)">
           <td>{{$index + 1}}</td>
-          <td>{{item.task}}</td>
+          <td>
+            <span ng-hide="editing" ng-click="editing = true">{{item.task}}</span>
+            <form ng-show="editing" ng-submit="editing = false">
+              <label>Task:</label>
+              <input type="text" data-ng-model="item.task" placeholder="{{item.task}}" ng-required/>
+              <button class="btn" type="submit">Save</button>
+            </form>
+          </td>
           <td data-ng-click="vm.destroy($index)">&#9760;</td>
         </tr>
         <tr>
-          <td colspan="3">****************************************</td>
+          <td colspan="4">*******************************************</td>
         </tr>
         <tr>
           <td>New Task</td>
