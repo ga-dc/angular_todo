@@ -21,9 +21,14 @@ var todoList = [
       vm.todoList.push(vm.new_task);
       vm.new_task = {};
     }
+    vm.edit = function(index){
+      vm.taskContent = vm.todoList(index).task
+    }
+    vm.update = function(index){
+      vm.todoList[index].task = vm.taskContent;
+    }
     vm.destroy = function(new_task){
       vm.todoList.splice(new_task, 1);
     }
-    
   }
 })();

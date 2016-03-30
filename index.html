@@ -15,12 +15,24 @@
             TASK LIST:
           </th>
           <th>
+            EDIT.
+          </th>
+          <th>
             DONE?
           </th>
         </tr>
       <tbody>
         <tr data-ng-repeat="todo in vm.todoList">
           <td>{{todo.task}}</td>
+
+          <td data-ng-click="editable=!editable">✎</td>
+          <td>
+            <form data-ng-show="editable">
+              <input type="text" data-ng-model="vm.taskContent">
+              <button data-ng-click="vm.update($index); editable=!editable">Update</button>
+            </form>
+          </td>
+
           <td data-ng-click="vm.destroy($index)">&cross;</td>
         </tr>
         <tr>
