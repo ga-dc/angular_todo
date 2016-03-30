@@ -23,6 +23,11 @@
           <td>{{item.task}}</td>
           <td data-ng-click="vm.destroy($index)">&#9760;</td>
         </tr>
+        <tr>
+          <td>New Task</td>
+          <td><input type="text" data-ng-model="vm.new_item.task" placeholder="Task"></td>
+          <td data-ng-click="vm.create();">&plus;</td>
+        </tr>
       </tbody>
     </table>
   </main>

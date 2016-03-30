@@ -37,10 +37,21 @@
       },
       {
         task: "Remember gloves"
+      },
+      {
+        task: "Scan apartment"
+      },
+      {
+        task: "Kill the dog"
       }
     ];
     vm.destroy = function(item_index){
       vm.toDoItems.splice(item_index, 1);
+    };
+    vm.new_item = {};
+    vm.create = function(){
+      vm.toDoItems.push(angular.copy(vm.new_item));
+      vm.new_item = {};
     };
   }
 })();
