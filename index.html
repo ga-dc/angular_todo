@@ -12,9 +12,14 @@
     <div data-ng-controller='tasks_controller as vm'>
 
       <!-- Show to dos -->
+      <!-- Can delete todos with destroy -->
       <ul data-ng-repeat='task in vm.data'>
         <li>
-          <span data-ng-click='vm.destroy(task)'>&check;</span> {{task}}  <!-- Can delete todos with destroy -->
+          <span data-ng-hide='editing' data-ng-click='editing = true'>{{task}}</span>
+          <form data-ng-show='editing' data-ng-submit='editing = false'>
+            <input type='text' data-ng-model='task' />
+          </form>
+          <span data-ng-click='vm.destroy($index)'>&check;</span>
         </li>
       </ul>
 
