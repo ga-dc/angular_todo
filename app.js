@@ -13,14 +13,11 @@
 
   function RouterFunction($stateProvider){
     $stateProvider
-    .state()
-  }
-  .controller("ToDoIndexController", [
-    "ToDoList",
-    ToDoIndexControllerFunction
-  ]);
-
-  function ToDoIndexControllerFunction( ToDoList ) {
-    this.toDo = ToDoList.query();
+    .state("listIndex", {
+      url: "/lists",
+      templateUrl: "js/lists/index.html",
+      controller: "ToDoIndexController",
+      controllerAs: "ToDoIndexViewModel"
+    });
   }
 }());
