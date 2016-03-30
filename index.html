@@ -10,6 +10,17 @@
     <h1>To Do!</h1>
     <div data-ng-controller='todosController as vm'>
 
+    <!-- Create Form -->
+<div>New Todo</div>
+<form data-ng-submit="vm.create()">
+  <label>content</label>
+  <input type="text" name="content" data-ng-model="vm.content">
+</form>
+
+<div data-ng-repeat="todo in vm.todos">
+  <p data-ng-show="!editTodo">{{$index + 1 +"."}}{{todo}}</p>
+
+
 
 
   </body>
