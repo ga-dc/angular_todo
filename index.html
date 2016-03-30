@@ -8,7 +8,46 @@
   </head>
   <body class="container" data-ng-app="Angular ToDo App">
   <header class="">
-    <h1>To Do!</h1>
+    <h1 ng-controller contenteditable="">To Do!</h1>
   </header>
+
+
+    <button ng-click="new()"> New </button>
+    <div ng-app>
+      <div ng-controller="ClickToEditCtrl">
+        <a href="#" ng-click="editorEnabled=!editorEnabled">List</a>
+        <div ng-show="editorEnabled">
+          <input ng-model="todos">
+            <a href="#" ng-click="editorEnabled=!editorEnabed">Done?</a>
+            <div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <button ng-click="edit()"> Edit</button>
+      <div ng-app>
+        <div ng-controller="ClickToEditCtrl">
+          <a href="#" ng-click="editorEnabled=!editorEnabled">List</a>
+          <div ng-show="editorEnabled">
+            <input ng-model="todos">
+              <a href="#" ng-click="editorEnabled=!editorEnabed">Done?</a>
+              <div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    <button class="delete" data-ng-click="vm.delete($index)"> Delete
+    </button>
+
+
+
+
+
+
   </body>
 </html>
