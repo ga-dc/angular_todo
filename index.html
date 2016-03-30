@@ -6,7 +6,25 @@
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
-  <body>
+  <body data-ng-app="Todo">
     <h1>To Do!</h1>
+    <div class="container" data-ng-controller="TodoController as vm">
+
+      <ul class="todo-list" ng-repeat="todo in vm.todos track by $index">
+        <li>
+          <span>{{ todo }}</span>
+          <button ng-click="vm.delete(todo)" >Delete</button>
+          <input ng-show="vm.giraffe" ng-attr-value="{{todo}}" type="text" class="txt" ng-model="vm.editTodo" ng-keyup="vm.add($event)" />
+          <button ng-click="vm.showEdit()" >Show Edit</button>
+          <button ng-click="vm.edit(todo)" >Edit</button>
+        </li>
+      </ul>
+
+      <ul class="add-todo">
+        <li>
+          <input type="text" class="txt" placeholder="New Todo" ng-model="vm.newTodo" ng-keyup="vm.add($event)" />
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
