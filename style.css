@@ -1,0 +1,21 @@
+* {
+  font-family: arial;
+}
+
+body {
+  text-align: center;
+}
+
+p {
+  font-size: 20px;
+}
+
+.newItem {
+  font-size: 30px;
+  background-color: red;
+  padding: 10px;
+  width: 150px;
+  margin: 0 auto;
+  color: white;
+
+}
