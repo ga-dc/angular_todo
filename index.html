@@ -15,31 +15,11 @@
       <h2>{{task.taskContent}}</h2>
       <h3>{{"due: "}}{{task.dueDate | date:'MM/dd/yyyy'}}</h3>
     </div>
-    <section>
-      <ul class="tab-bar">
-        <li ng-class="{active:tab === 1 }">
-          <a href ng-click="tab = 1">new</a>
-        </li>
-        <li ng-class="{active:tab === 2 }">
-          <a href ng-click="tab = 2">edit</a></li>
-        <ling-class="{active:tab === 3 }">
-        <a href ng-click="tab = 3">delete</a></li>
-      </ul>
-    </section ng-init="tab = 1">
-    <div class="new" ng-show="tab === 1">
-      <p>new task</p>
-      <p>{{task.newTask}}</p>
-    </div>
-    <div class="edit" ng-show="tab === 1">
-      <p>edit task</p>
-      <p>{{task.editTask}}</p>
-    </div>
-    <div class="delete" ng-show="tab === 1">
-      <p>delete task</p>
-      <p>{{task.deleteTask}}</p>
-    </div>
   </div>
-</body>
-</html>
-<!-- <button ng-show="app.item.thingwesettotrue"> will only show if the "thing we set as true is true" -->
-<!-- ng-hide will hide when something is true  -->
+  </body>
+  </html>
+  <!-- <button ng-show="app.item.thingwesettotrue"> will only show if the "thing we set as true is true" -->
+  <!-- ng-hide will hide when something is true  -->
+<!-- 1. why wont this work? (see directly above)
+2. how can I use contentEditable? (save it?)
+3. dates? wtf?  -->
