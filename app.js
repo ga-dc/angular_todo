@@ -2,8 +2,6 @@
 
 (function(){
   angular.module('toDoApp', []).controller('list_controller', ListController);
-
-
   function ListController(){
     var vm = this;
     vm.tasks = tasks;
@@ -25,7 +23,6 @@
     };
     vm.editTask = function(){
       console.log('editing goin on')
-
     }
   }
 

@@ -4,7 +4,17 @@
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
      <script>
-     var tasks = [{name: 'dinner', note: 'get started'}];
+     var tasks = []
+     var tasksInitializer = function(){
+       for (var i = 0; i < 10; i++){
+        tasks.push({
+          name: "task " + i,
+          note: ''
+        })
+       }
+       return tasks;
+     }
+     tasksInitializer();
      </script>
   </head>
   <body data-ng-app="toDoApp">
@@ -27,7 +37,7 @@
             <td id="row-index">{{$index + 1}}</td>
             <td>{{task.name}}</td>
             <td><input type="textarea" label="task-notes-section" data-ng-model="task.note" id="notes-field" placeholder="add notes"></td>
-            <td><input type="checkbox" label="checkbox" data-ng-model="vm.task.done" id="task-check"></td>
+            <td><input type="checkbox" label="checkbox" id="task-check"></td>
             <td><button label="edit-button" data-ng-click="vm.editTask()" id="edit-btn">Edit Task</td>
             <td><button label="delete-button" data-ng-click="vm.deleteTask(task)" id="delete-btn">Delete Task</td>
           </tr>
