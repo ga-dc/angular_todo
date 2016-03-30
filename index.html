@@ -14,16 +14,20 @@
           <th>
             TASK LIST:
           </th>
+          <th>
+            DONE?
+          </th>
         </tr>
       <tbody>
         <tr data-ng-repeat="todo in vm.todoList">
           <td>{{todo.task}}</td>
+          <td data-ng-click="vm.destroy($index)">&cross;</td>
         </tr>
         <tr>
           <td>
             <input type="text" data-ng-model="vm.new_task.task" placeholder="New task"/>
           </td>
-            <td data-ng-click="vm.create()">+</td>
+          <td data-ng-click="vm.create()">+</td>
         </tr>
       </tbody>
     </table>
