@@ -4,7 +4,7 @@
   angular
   .module("toDo", [
     "ui.router",
-    "grumbles"
+    "lists"
   ])
   .config([
     "$stateProvider",
@@ -13,7 +13,7 @@
 
   function RouterFunction($stateProvider){
     $stateProvider
-    .state("listIndex", {
+    .state("todoIndex", {
       url: "/lists",
       templateUrl: "js/lists/index.html",
       controller: "ToDoIndexController",

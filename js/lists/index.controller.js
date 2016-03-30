@@ -2,13 +2,13 @@
 
 (function(){
   angular
-  .module("lists")
+  .module("toDo")
   .controller("ToDoIndexController", [
     "ToDoList",
     ToDoIndexControllerFunction
   ]);
 
   function ToDoIndexControllerFunction( ToDoList ){
-    
+
   }
 })
