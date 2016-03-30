@@ -3,10 +3,66 @@
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
+     <link rel="stylesheet" href="bootstrap.css" />
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+     <script src="data.js"></script>
      <script src="app.js"></script>
   </head>
-  <body>
+  <body class="container" data-ng-app="toDoList">
     <h1>To Do!</h1>
+    <main data-ng-controller="toDoList_controller as vm">
+        <h2>Total Time Allocated: {{vm.total_time()}}</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th data-ng-click="vm.sort_data_by('priority')">Priority</th>
+              <th>Task</th>
+              <th>Description</th>
+              <th data-ng-click="vm.sorta_data_by('ettc')">Estimated Time to Complete</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-ng-repeat="task in vm.data | orderBy: vm.sort_on : vm.is_descending">
+              <td>
+                <div data-ng-hide="task.edit">{{task.priority}}</div>
+                <div data-ng-show="task.edit"><input type="number" data-ng-model="task.priority" value={{task.priority}}/></div>
+              </td>
+              <td>
+                <div data-ng-hide="task.edit">{{task.title}}</div>
+                <div data-ng-show="task.edit"><input type="text" data-ng-model="task.title" value={{task.title}}/></div>
+              </td>
+              <td>
+                <div data-ng-hide="task.edit">{{task.description}}</div>
+                <div data-ng-show="task.edit"><input type="text" data-ng-model="task.description" value={{task.description}}/></div>
+              </td>
+              <td>
+                <div data-ng-hide="task.edit">{{task.ettc}}</div>
+                <div data-ng-show="task.edit"><input type="number" data-ng-model="task.ettc" value={{task.ettc}}/></div>
+              </td>
+              <td>
+                <span data-ng-hide="task.edit"  data-ng-click="vm.modify(task)">&#9998; &nbsp;</span>
+                <span data-ng-show="task.edit" data-ng-click="vm.update(task)">&#10004;  &nbsp;</span>
+                <span data-ng-click="vm.destroy(task)">&cross;</span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="1">
+                <input type = "number" data-ng-model="vm.new_task.priority" placeholder="Priority"/>
+              </td>
+              <td>
+                <input type = "text" data-ng-model="vm.new_task.title" placeholder="Task" />
+              </td>
+              <td>
+                <input type = "text" data-ng-model="vm.new_task.description" placeholder="Description" />
+              </td>
+              <td>
+                <input type = "number" data-ng-model="vm.new_task.ettc" placeholder="Est. Time Required" />
+              </td>
+              <td data-ng-click="vm.create()">&plus;</td>
+            </tr>
+          </tbody>
+        </table>
+      </main>
   </body>
 </html>
