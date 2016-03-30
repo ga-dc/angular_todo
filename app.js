@@ -3,9 +3,10 @@
 (function(){
   angular
   .module("myTodo", [])
-  .controller("myTodo_controller", myTodoController);
+  .controller("vm", myTodoController);
 
-  function myTodoController(){
-    var vm = this;
+  function myTodoController($scope){
+    var vm = $scope
+    vm.todo
     }
   })();
