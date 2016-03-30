@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="ToDo">
+<html lang="en" ng-app="TaskBastard">
 <head>
   <meta charset="UTF-8">
   <title>toDo</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-  <script type="text/javascript" src="app.js"></script>
-  <script src="angular.js"></script>
-</head>
-<body>
-  <h1>To-Do</h1>
-  <input type="text">
-  <button class="CreateButt">Create Task</button>
 
+  <script src="data.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <!-- <script src="angular.js"></script> -->
+
+</head>
+<body ng-controller="TBController as tb">
+  <h1>Task Bastard</h1>
+  <div ng-repeat="task in tb.tasks">
+    <h2>{{task.taskContent}}</h2>
+    <h3>{{task.dueDate}}</h3>
+  </div>
 </body>
 </html>
+<!-- <button ng-show="app.item.thingwesettotrue"> will only show if the "thing we set as true is true" -->
+<!-- ng-hide will hide when something is true  -->
