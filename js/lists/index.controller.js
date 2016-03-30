@@ -9,6 +9,6 @@
   ]);
 
   function ToDoIndexControllerFunction( ToDoList ){
-
+    this.toDo = toDoList.query();
   }
-})
+}());
