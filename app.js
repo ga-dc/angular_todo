@@ -3,6 +3,7 @@ angular.module('Todo', [])
          var vm = this;
          vm.newTodo = '';
          vm.editTodo = '';
+         vm.giraffe = false;
          vm.todos = [
             "Grocery shop",
             "Return library book",
@@ -16,11 +17,14 @@ angular.module('Todo', [])
 
           vm.edit = function(todo) {
             var indexOf = vm.todos.indexOf(todo);
+
                 vm.todos.splice(indexOf, 1);
                 vm.todos.splice(indexOf, 0, vm.editTodo);
             };
 
-
+            vm.showEdit = function(todo) {
+                    vm.giraffe = true;
+            };
 
           vm.add = function(e) {
              if (e.which && e.which === 13) {
@@ -28,7 +32,4 @@ angular.module('Todo', [])
                vm.newTodo = '';
              }
            };
-
-
-
           });
