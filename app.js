@@ -7,6 +7,5 @@
 
   function myTodoController(){
     var vm = this;
-    vm.data = data;
     }
   })();
