@@ -5,8 +5,55 @@
      <title>Angular ToDo App</title>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
+     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <body>
-    <h1>To Do!</h1>
+  <body class="container" data-ng-app="list"> <!-- this is the name of the module. data-ng-app is needed in order to begin working in angular -->
+    <h1>Grocery List</h1>
+    <div data-ng-controller="list_controller as vm">
+      <!-- this creates new instance of list_controller (need to call controller name here so taht I can use the controller) and saves it into variable vm. vm needs to be name of "this" in controller -->
+
+    <!-- CREATE NEW LIST ITEM-->
+    <div data-ng-click="vm.toggleForm()", class="newItem">New Item</div>
+    <!-- When new item is clicked run the vm.toggleForm() function -->
+    <form data-ng-show="vm.formIsVisible" data-ng-submit="vm.create()">
+      <!-- ng-click and ng-show are directives. ng-show works with controller. On submit start the vm.create function -->
+      <label>content</label>
+        <input type="text" name="content" data-ng-model="vm.content">
+        <!-- this creates two-way data binding between the value of textarea and a variable in the controller. If I change something in the textfield it will automatically change it in the back-end without refreshing. -->
+      </form>
+
+
+    <!-- SHOW ITEMS IN LIST -->
+      <div data-ng-repeat="item in vm.listItem">
+    <!-- if I want my New Item field to filter through list items I can do:
+      <div data-ng-repeat="item in vm.listItem | filter: vm.content">
+      since there is a data-ng-model="vm.content". Filters only work on ng-repeat-->
+        <p data-ng-show="!editList">{{$index + 1 + ". "}}{{item}}</p> <!-- $index adds an index number to all of my items
+        Also, inside ng-repeat you automatically have access to $index
+
+        currentlly the edit list button is hiding (not showing the textfield form).
+        -->
+      <!-- EDIT LIST -->
+        <button class="edit" data-ng-click = "vm.edit($index); editList=!editList">Edit List</button>
+        <form data-ng-show="editList"> <!-- when editList is clicked on it becomes true and form shows up -->
+          <input type="text" name="content" data-ng-model="vm.content">
+        <!-- data-ng-model will save whatever is typed into the textfield -->
+      <!-- UPDATE ITEM -->
+          <button class="saveEdit" data-ng-click="vm.update($index); editList = !editList">Save</button> <!-- on click this starts up the update function and passes in the argument of index, after I hit save it also closes the form -->
+
+          <button data-ng-click='editList = !editList' class='cancel'>Cancel</button> <!-- this will turn visibility back to false and hide the edit form -->
+        </form>
+        <!-- editList = !editList is short way of saying:
+          if (editList !== false){
+          editList = false;
+          } else {
+          editList = true;
+          }
+        -->
+        <button class="delete" data-ng-click="vm.delete(item)">Delete</button>
+        <!-- on click calls the delete function -->
+
+      </div>
+    </div>
   </body>
 </html>
