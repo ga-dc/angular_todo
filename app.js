@@ -2,7 +2,19 @@
 
 (function(){
   angular
-  .module("toDo")
+  .module("toDo", [
+    "ui.router",
+    "grumbles"
+  ])
+  .config([
+    "$stateProvider",
+    RouterFunction
+  ]);
+
+  function RouterFunction($stateProvider){
+    $stateProvider
+    .state()
+  }
   .controller("ToDoIndexController", [
     "ToDoList",
     ToDoIndexControllerFunction
