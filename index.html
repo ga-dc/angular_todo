@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-  <html lang="en">
+  <html data-ng-app="myTODO" lang="en">
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
+     <link rel="stylesheet" href="bootstrap.css">
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
+     <script src="data.js"></script>
   </head>
   <body>
-    <h1>To Do!</h1>
+    <header class="jumbotron">
+      <h1>To Do!</h1>
+    </header>
+    <main data-ng-controller="todoController as vm">
+      <ul data-ng-repeat="Todo in vm.todos">
+        <li>{{Todo.Note}}</li>
+        <input type="button" value="Edit"></input>
+      </ul>
+    </main>
   </body>
 </html>
