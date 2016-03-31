@@ -3,10 +3,36 @@
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
+     <link href='https://fonts.googleapis.com/css?family=Crafty+Girls' rel='stylesheet' type='text/css'>
+     <link rel="stylesheet" href="styles.css" />
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
-  <body>
-    <h1>To Do!</h1>
+  <body class='container' data-ng-app='task'>
+    <div class='notepad' data-ng-controller='tasks_controller as vm'>
+      <h1>To Do!</h1>
+
+      <!-- Show to dos -->
+      <!-- Can delete todos with destroy -->
+      <ul data-ng-repeat='task in vm.data'>
+        <li>
+          <span data-ng-click='vm.destroy($index)'>&check;</span>
+          <span data-ng-hide='editing' data-ng-click='editing = true'>{{task}}</span>
+          <form data-ng-show='editing' data-ng-submit='editing = false'>
+            <input type='text' data-ng-model='task' />
+          </form>
+        </li>
+      </ul>
+
+      <!-- Add to dos -->
+      <div>
+        <form data-ng-submit='vm.create()'>
+          <label>New Task</label>
+          <input type='text' data-ng-model='vm.new_task'/>
+        </form>
+
+      </div>
+
+    </div>
   </body>
 </html>
