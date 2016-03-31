@@ -8,21 +8,23 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body data-ng-app="task">
+<body data-ng-app="vm.task">
   <h1>To Do!</h1>
 
   <div data-ng-controller='taskController as vm'>
 
     <form data-ng-submit="vm.create()">
-      <input data-ng-model="task.isediting" value="">
+      <input type="text" data-ng-model="vm.tasks" value="">
 
 
       <button>submit</button>
     </form>
     <ul>
       <li data-ng-repeat="task in vm.tasks" data-ng-click="vm.edit(task)">
-        <span data-ng-hide="task.isediting">{{task.text}}</span>
-        <input contenteditable="true"  value="{{task.text}}">
+        <span data-ng-hide="task.isediting">
+
+        </span>
+        <input type="text" data-ng-model="task.isediting" value="">
 
       </li>
     </ul>

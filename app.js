@@ -6,7 +6,7 @@
 
   function ControllerFunction(){
     var vm = this;
-    vm.tasks = [
+    vm.task = [
       {text: "eat lunch"}
     ];
 
@@ -23,7 +23,7 @@
     console.log(task);
     task.isediting = true;
   };
-  };
+});
 
 
-  })();
+})();
