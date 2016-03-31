@@ -3,10 +3,75 @@
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+     <style>
+      .edit-field {
+        display: none;
+      }
+      .edit-select {
+        cursor: pointer;
+      }
+      td {
+        border: 1px solid orange;
+      }
+     </style>
   </head>
-  <body>
+  <body data-ng-app="toDoApp">
     <h1>To Do!</h1>
+
+    <main data-ng-controller="list_controller as vm">
+      <form data-ng-submit="vm.taskAdder()">
+        <input type="text" name="add-task" label="task-input" id="task-field" placeholder="enter new task" />
+        <input type="text" name="add-notes" label="note-input" id="add-notes-field" placeholder="enter notes" />
+        <input data-ng-click="vm.taskAdder()" type="button" value="Add Task" id="create-btn" />
+      </form>
+      <table class="table">
+        <thead>
+          <tr>
+            <td>No.</td>
+            <th>Task</th>
+            <th>Notes</th>
+            <th>Done</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        <tbody>
+          <tr data-ng-repeat="task in vm.tasks">
+            <td id="row-index">{{$index + 1}}</td>
+            <td ng-click="vm.editTask(task)" >
+              <form data-ng-submit="vm.editTask(task)">
+                <p id="name-text-{{$index}}" class="edit-select" ng-click="vm.editTask(task)">{{task.name}}</p>
+                <input data-ng-submit="vm.editTask(task)" type="text" label="name input" id="name-input-{{$index}}" data-ng-model="task.name" class="edit-field" placeholder="edit name" />
+              </form>
+            </td>
+            <td>
+              <form data-ng-submit="vm.editTask(task)">
+                <p id="notes-text-{{$index}}" class="edit-select" ng-click="vm.editTask(task)">{{task.notes}}</p>
+                <input type="textarea" label="task-notes-section" id="notes-input-{{$index}}" data-ng-model="task.notes" placeholder="add notes" class="edit-field" /></td>
+              </form>
+            <td><input type="checkbox" label="checkbox" id="task-check"></td>
+            <td><button label="edit-button" data-ng-click="vm.editTask(task)" id="edit-btn">Edit Task</td>
+            <td><button label="delete-button" data-ng-click="vm.deleteTask(task)" id="delete-btn">Delete Task</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+    // add some dummy info
+      var tasks = []
+      var tasksInitializer = function(){
+        for (var i = 0; i < 10; i++){
+         tasks.push({
+           name: "task " + i,
+           notes: 'something, something...'
+         })
+        }
+        return tasks;
+      }
+      tasksInitializer();
+    </script>
   </body>
 </html>
