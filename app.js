@@ -10,7 +10,9 @@
     vm.todos = [
       "Wake up",
       "Go shopping",
-      "Eat food"
+      "Eat food",
+      "Excercise 30 min",
+      "Take a Shower"
     ];
 
     vm.create = function(){
@@ -27,12 +29,8 @@
       vm.todos[index] = vm.content;
     };
 
-
-
-
-
-
+    vm.delete = function(index){
+      vm.todos.splice(index, 1);
+    }
   }
-
-
 })();

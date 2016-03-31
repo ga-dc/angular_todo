@@ -2,10 +2,25 @@
   <html lang="en">
   <head>
      <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+
      <title>Angular ToDo App</title>
+    <style>
+h1{
+  font-size: 40px;
+  color: green;
+
+}
+  body {
+    font-size: 20px;
+    font-family: helvetica;
+    text-align: center;
+  }
+
+
+
+    </style>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
@@ -28,7 +43,8 @@
 <form data-ng-show="editTodo">
   <input type='text' name='content' data-ng-model="vm.content">
   <button class="new" data-ng-click="vm.update($index); editTodo = !editTodo">Save</button>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+</form>
+<button data-ng-click="vm.delete($index)">Delete</button>
+
   </body>
 </html>
