@@ -1,0 +1,16 @@
+table, th, tr, td {
+  padding: 20px;
+  border: 1px solid black;
+}
+
+th, td, {
+  width: 300px;
+}
+
+th {
+  background-color: yellow;
+}
+
+input {
+  width: 250px;
+}
