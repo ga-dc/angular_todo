@@ -8,14 +8,15 @@
     vm.tasks = tasks;
     vm.taskAdder = function(){
       var taskBox = document.getElementById('task-field').value;
-      if(taskBox !== '') {
+      var taskNotes = document.getElementById('add-notes-field').value;
+      if(taskBox !== '' || taskNotes !== '') {
         vm.tasks.push({
           name: taskBox,
-          // done: false,
-          note: ''
+          notes: taskNotes
         });
       }
       document.getElementById('task-field').value = '';
+      document.getElementById('add-notes-field').value = '';
     };
     vm.deleteTask = function(task){
       console.log('hey');

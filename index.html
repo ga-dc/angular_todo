@@ -21,8 +21,9 @@
 
     <main data-ng-controller="list_controller as vm">
       <form data-ng-submit="vm.taskAdder()">
-        <input type="text" name="add-task" label="task-input" id="task-field" placeholder="enter new task">
-        <input data-ng-click="vm.taskAdder()" type="button" value="Add Task" id="create-btn">
+        <input type="text" name="add-task" label="task-input" id="task-field" placeholder="enter new task" />
+        <input type="text" name="add-notes" label="note-input" id="add-notes-field" placeholder="enter notes" />
+        <input data-ng-click="vm.taskAdder()" type="button" value="Add Task" id="create-btn" />
       </form>
       <table class="table">
         <thead>
@@ -39,13 +40,13 @@
             <td id="row-index">{{$index + 1}}</td>
             <td ng-click="vm.editTask(task)" >
               <form data-ng-submit="vm.editTask(task)">
-                <p id="name-text-{{$index}}" class="edit-select">{{task.name}}</p>
+                <p id="name-text-{{$index}}" class="edit-select" ng-click="vm.editTask(task)">{{task.name}}</p>
                 <input data-ng-submit="vm.editTask(task)" type="text" label="name input" id="name-input-{{$index}}" data-ng-model="task.name" class="edit-field" placeholder="edit name" />
               </form>
             </td>
-            <td ng-click="vm.editTask(task)">
+            <td>
               <form data-ng-submit="vm.editTask(task)">
-                <p id="notes-text-{{$index}}" class="edit-select">{{task.notes}}</p>
+                <p id="notes-text-{{$index}}" class="edit-select" ng-click="vm.editTask(task)">{{task.notes}}</p>
                 <input type="textarea" label="task-notes-section" id="notes-input-{{$index}}" data-ng-model="task.notes" placeholder="add notes" class="edit-field" /></td>
               </form>
             <td><input type="checkbox" label="checkbox" id="task-check"></td>
@@ -59,6 +60,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
     <script src="app.js"></script>
     <script>
+    // add some dummy info
       var tasks = []
       var tasksInitializer = function(){
         for (var i = 0; i < 10; i++){
