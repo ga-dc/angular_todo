@@ -1,12 +1,56 @@
 <!DOCTYPE html>
   <html lang="en">
-  <head>
-     <meta charset="UTF-8">
-     <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
-  </head>
-  <body>
-    <h1>To Do!</h1>
-  </body>
-</html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Angular ToDo App</title>
+      <link rel="stylesheet" href="bootstrap.css"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.11/Rx.min.js"></script>
+      <script src="data.js"></script>
+      <script src="app.js"></script>
+    </head>
+    <body class=container data-ng-app="todo">
+      <header class="jumbotron">
+        <h1>So Much to Do!</h1>
+      </header>
+
+      <main data-ng-controller="ToDoListController as vm">
+        <h2>Here's my list! Check them off as you go!</h2>
+      <input type="text" class="form-control" placeholder="Filter on..."  data-ng-model="vm.filter_on"/>
+      <table class="table table-striped">
+       <thead>
+         <tr>
+           <th colspan="2" data-ng-click="vm.sort_data_by('item')">Item</th>
+           <th data-ng-click="vm.sort_data_by('comments')">Comments</th>
+           <th data-ng-click="vm.sort_data_by('deadline')">Deadline</th>
+         </tr>
+       </thead>
+       <tbody>
+        <tr data-ng-repeat="list in vm.data | filter: vm.filter_on">
+          <td colspan="2">
+            <input type="text" data-ng-model="{{list.item}}"></a>
+          </td>
+          <td>
+            <input type="text" data-ng-model="{{list.comments}}"/>
+          </td>
+          <td>
+            <input type="date" data-ng-model="{{list.deadline}}"/>
+          </td>
+          <td data-ng-click="vm.destroy($index)">&cross;</td>
+         </tr>
+         <tr>
+          <td colspan="2">
+            <input type="text" data-ng-model="vm.new_list.item" placeholder="Item" />
+          </td>
+          <td>
+            <input type="text" data-ng-model="vm.new_list.comments" placeholder="Comments" />
+          </td>
+          <td>
+            <input type="date" data-ng-model="vm.new_list.deadline" placeholder="Deadline" />
+          </td>
+          <td data-ng-click="vm.create()">&plus;</td>
+        </tr>
+       </tbody>
+     </table>
+   </main>
+    </body>
+  </html>
