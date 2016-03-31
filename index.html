@@ -1,12 +1,55 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-     <meta charset="UTF-8">
-     <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
-  </head>
-  <body>
-    <h1>To Do!</h1>
-  </body>
+<html lang="en" data-ng-app="TaskBastard">
+<head>
+  <meta charset="UTF-8">
+  <title>toDo</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+  <!-- <script src="angular.js"></script> -->
+  <script src="data.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</head>
+
+<body data-ng-controller="TBController as tb">
+<div class="headerdiv">
+  <h1 class="app-name">Task Bastard</h1>
+</div>
+  <form class="form">
+    <label type="text">Do this $#%@!!</label>
+      <input type="text" data-ng-model="newTaskContent"><br>
+    <label type="text">Now when is this $#%@! due??</label>
+      <input type="text" data-ng-model="newDueDate"><br>
+    <button data-ng-click="tb.create({taskContent: newTaskContent, dueDate: newDueDate})">submit</button>
+  </form>
+
+  <table id="PostTable">
+    <thead>
+      <th colspan="3"></th>
+    </thead>
+    <tbody ng-repeat="task in tb.tasks | orderBy:'dueDate'">
+      <tr>
+        <td class="post-it">
+          <div class="task">
+          <p class="taskContent" contenteditable="true">{{task.taskContent}}</p>
+          <p class="dueDate" contenteditable="true">{{"due: "}}{{task.dueDate}}</p>
+          <p data-ng-click="tb.destroy(task)">X</p>
+        </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 contenteditable="true">{{newTask}}</h3>
+</body>
 </html>
+
+
+
+
+
+<!-- <button ng-show="app.item.thingwesettotrue"> will only show if the "thing we set as true is true" -->
+<!-- ng-hide will hide when something is true  -->
+<!-- 1. why wont this work? (see directly above)
+2. how can I use contentEditable? (save it?)
+3. dates? wtf?  -->
