@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-  <html lang="en">
+  <html data-ng-app="todo" lang="en">
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
+     <link rel="stylesheet" href="css/styles.css">
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
+     <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+     <script src="js/app.js"></script>
+     <script src="js/todo/index.controller.js"></script>
   </head>
   <body>
     <h1>To Do!</h1>
+    <main data-ui-view></main>
   </body>
 </html>

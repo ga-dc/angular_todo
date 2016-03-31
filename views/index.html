@@ -1,0 +1,15 @@
+<div data-ng-repeat="todo in vm.todos">
+  <div class="line">
+    <input type="checkbox" data-ng-checked="todo.completed" data-ng-model="todo.completed" ng-show="!editable"/>
+    <p ng-show="!editable">{{todo.task}}</p>
+    <input type="text" value="todo.task" data-ng-model="todo.task" ng-show="editable"/>
+    <button data-ng-click="editable=true" ng-show="!editable">Edit</button>
+    <button data-ng-click="vm.remove($index)" ng-show="todo.completed&&!editable">Remove</button>
+    <button data-ng-click="editable=false" ng-show="editable">Update</button>
+  </div>
+</div>
+<h2>Create New Task</h2>
+<div class="line">
+  <input type="text" data-ng-model="vm.newTask"/>
+  <button data-ng-click="vm.addTask()">Add Task</button>
+</div>
