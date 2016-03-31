@@ -2,7 +2,7 @@ var todos =
   [{"name":"Laundry"},
    {"name":"Homework"},
    {"name":"Groceries"},
-   {"name":"Walk the dog"},
+   {"name":"Pay phone bill"},
    {"name":"Wash the car"},
-   {"name":"Get car serviced"}
+   {"name":"Make dinner"}
   ]

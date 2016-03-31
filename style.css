@@ -1,3 +1,19 @@
 .actions{
   display: inline-block;
+  margin-left: 5px;
+}
+.done-true {
+  text-decoration: line-through;
+  color: rgb(187, 51, 22);
+}
+
+.list {
+padding-left: 5px;
+font-size: 18px;
+color: rgb(79, 94, 212);
+}
+
+h1 {
+  font-family: sans-serif;
+  color: rgb(79, 94, 212);
 }
