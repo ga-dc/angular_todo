@@ -1,12 +1,30 @@
 <!DOCTYPE html>
+  <html ng-app="Todo">
   <html lang="en">
+
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+     <link rel="stylesheet" href="bootstrap.css" />
      <script src="app.js"></script>
   </head>
-  <body>
-    <h1>To Do!</h1>
+  <body ng-app="Todo" ng-controller=Todo_controller>
+    <div class="container">
+      <h2>To Do</h2>
+
+        <div class="todo-list" ng-repeat="todo in todos track by $index">
+          <label>
+            <span>{{ todo }}</span>
+            <button class="submit" ng-click="done(todo)">Completed</button>
+          </label>
+        </div>
+
+    <div class="add-todo">
+        <label>
+          <input type="text" class="txt" placeholder="Write&Press enter here" ng-model="newTodo" ng-keyup="add($event)" />
+        </label>
+    </div>
+    </div>
   </body>
 </html>
