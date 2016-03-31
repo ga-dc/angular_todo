@@ -10,7 +10,35 @@
       <script src="app.js"></script>
 
     </head>
-    <body class=container data-ng-controller= "toDoList as vm">
-      <h1>{{vm.list}}</h1>
+    <body class=container data-ng-app="toDo">
+      <header class="jumbotron">
+        <h1>So Much to Do!</h1>
+      </header>
+
+      <main data-ng-controller="toDoList as vm">
+        <h2>{{vm.list}}</h2>
+        <h2>Here's my list! Check them off as you go!</h2>
+        <input type="text" class="form-control" placeholder="Filter on..." />
+     <table class="table table-striped">
+       <thead>
+         <tr>
+           <td>a-z</td>
+           <th>Item</th>
+           <th>Comments</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td>.</td>
+           <td>
+             <input type="text" />
+           </td>
+           <td>
+             <input type="text" />
+           </td>
+         </tr>
+       </tbody>
+     </table>
+   </main>
     </body>
   </html>
