@@ -16,7 +16,6 @@
       </header>
 
       <main data-ng-controller="toDoList as vm">
-        <h2>{{vm.list}}</h2>
         <h2>Here's my list! Check them off as you go!</h2>
         <input type="text" class="form-control" placeholder="Filter on..." />
      <table class="table table-striped">
@@ -28,13 +27,15 @@
          </tr>
        </thead>
        <tbody>
-         <tr>
-           <td>.</td>
+         <tr data-ng-repeat="list in vm.data">
+          <td>.</td>
+          <td>{{list.item}}</td>
+          <td>
+            <input type="text"/>
+          </td>
+          <td>{{list.comments}}</td>
            <td>
-             <input type="text" />
-           </td>
-           <td>
-             <input type="text" />
+             <input type="text"/>
            </td>
          </tr>
        </tbody>
