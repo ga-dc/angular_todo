@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-(function(){
+(function() {
   angular
-  .module("toDo", [] )
+  .module("lists", [] )
   .controller("toDoListController", ToDoListController);
 
   function ToDoListController(){
@@ -11,10 +11,11 @@
     vm.destroy = function(list_index){
       vm.data.splice(list_index, 1);
     }
-    vm.new_item = {};
+
+    vm.new_list = {};
     vm.create = function(){
-      vm.data.push(angular.copy(vm.new_item));
-      vm.new_item = {};
+      vm.data.push(angular.copy(vm.new_list));
+      vm.new_list = {};
     }
   };
 }());
