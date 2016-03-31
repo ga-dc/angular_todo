@@ -1,12 +1,41 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-     <meta charset="UTF-8">
-     <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
-  </head>
-  <body>
-    <h1>To Do!</h1>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular ToDo App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</head>
+<body data-ng-app="todo">
+  <h1>To Do!</h1>
+  <main data-ng-controller="todo_controller as item">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Thing To Do</td>
+          <td>When It's Due</td>
+          <td>Add/Edit/Delete</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" data-ng-model="item.new_item.name" placeholder="Enter some task" />
+          </td>
+          <td>
+            <input type="text" data-ng-model="item.new_item.due" placeholder="Due Date" />
+          </td>
+          <td data-ng-click="item.create()">Add</td>
+          <tr data-ng-repeat="activity in item.data">
+            <td>{{activity.name}}</td>
+            <td>{{activity.due}}</td>
+            <td data-ng-click="item.edit(activity)">Edit</td>
+            <td data-ng-click="item.destroy(activity)">&cross;</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
   </body>
-</html>
+  </html>
