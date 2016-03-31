@@ -17,7 +17,15 @@
       vm.todos.unshift(vm.content);
       vm.content = "";
     }
-    
+
+    vm.edit = function(index){
+      var todo = vm.todos[index];
+      vm.content = todo;
+    };
+
+    vm.update = function(index){
+      vm.todos[index] = vm.content;
+    };
 
 
 
