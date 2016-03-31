@@ -1,12 +1,36 @@
 <!DOCTYPE html>
-  <html lang="en">
+  <html lang="en" data-ng-app="toDoList">
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
+     <link rel="stylesheet" type="text/css" href="style.css">
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+
      <script src="app.js"></script>
   </head>
-  <body>
+  <body data-ng-controller="toDoController as list">
     <h1>To Do!</h1>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th> What's the task? </th>
+          <th> What do you need to do? </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-ng-repeat="task in list">
+          <td> {{index + 1}}</td>
+          <td>{{list.task}}</td>
+          <td>{{list.detail}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="text" data-ng-model="list.new_task.task" placeholder="What's the task?"/></td>
+          <td><input type="text" data-ng-model="list.new_task.detail" placeholder="What do you need to do?"/></td>
+          <td data-ng-click="list.create()">&plus;</td>
+      </tbody>
+    </table>
   </body>
 </html>
