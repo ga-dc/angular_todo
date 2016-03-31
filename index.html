@@ -2,11 +2,49 @@
   <html lang="en">
   <head>
      <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
      <title>Angular ToDo App</title>
+    <style>
+h1{
+  font-size: 40px;
+  color: green;
+
+}
+  body {
+    font-size: 20px;
+    font-family: helvetica;
+    text-align: center;
+  }
+
+
+
+    </style>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
-  <body>
+  <body data-ng-app="todo">
     <h1>To Do!</h1>
+    <div data-ng-controller='todosController as vm'>
+
+<!-- add create function -->
+<div>New Todo</div>
+<form data-ng-submit="vm.create()">
+  <label>content</label>
+  <input type="text" name="content" data-ng-model="vm.content">
+</form>
+
+<!-- show the list of todos -->
+<div data-ng-repeat="todo in vm.todos">
+  <p data-ng-show="!editTodo">{{$index + 1 +"."}}{{todo}}</p>
+<!-- Add Edit -->
+<button data-ng-click="vm.edit($index); editTodo = !editTodo">Edit todo</button>
+<form data-ng-show="editTodo">
+  <input type='text' name='content' data-ng-model="vm.content">
+  <button class="new" data-ng-click="vm.update($index); editTodo = !editTodo">Save</button>
+</form>
+<button data-ng-click="vm.delete($index)">Delete</button>
+
   </body>
 </html>
