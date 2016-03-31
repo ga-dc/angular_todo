@@ -1,12 +1,48 @@
 <!DOCTYPE html>
-  <html lang="en">
+  <html lang="en" data-ng-app="toDo">
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
-  <body>
-    <h1>To Do!</h1>
+  <body data-ng-controller="toDoController as vm">
+
+  <h1>To Do!</h1>
+
+  <label>Add a new Task</label>
+  <input type="text" data-ng-model="vm.newTask">
+  <input type="submit" data-ng-click="vm.create()">
+
+  <ul data-ng-repeat="task in vm.data ">
+    <li>{{task.title}} | {{task.completed}} | {{$index}} | <a data-ui-sref="vm.edit">Edit</a></li>
+  </ul>
+
+    <!-- <table>
+      <tr>
+        <th>Date</th>
+        <th>Task</th>
+        <th>Complete By</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td> 3/28/16</td>
+        <td>Item #1</td>
+        <td>4/1/16</td>
+        <td>Action</td>
+      </tr>
+      <tr>
+       <td colspan="2">
+         <input type="text" data-ng-model="vm.date" placeholder="date" />
+       </td>
+       <td>
+         <input type="text" data-ng-model="vm.task" placeholder="task" />
+      </td>
+       <td>
+         <input type="text" data-ng-model="vm.complete_by" placeholder="complete_by" />
+       </td>
+       <td data-ng-click="vm.create()">&plus;</td>
+     </tr>
+    </table> -->
   </body>
 </html>
