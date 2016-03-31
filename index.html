@@ -19,26 +19,36 @@
       <table class="table table-striped">
        <thead>
          <tr>
-           <th>Item</th>
-           <th>Comments</th>
-           <th>Deadline</th>
+           <th colspan="2" data-ng-click="vm.sort_data_by('item')">Item</th>
+           <th data-ng-click="vm.sort_data_by('comments')">Comments</th>
+           <th data-ng-click="vm.sort_data_by('deadline')">Deadline</th>
          </tr>
        </thead>
        <tbody>
         <tr data-ng-repeat="list in vm.data | filter: vm.filter_on">
-          <td>
-            <input type="text" data-ng-model="{{list.item}}"/>
-          </td>
-          <td>
-            <input type="text"/>
+          <td colspan="2">
+            <input type="text" data-ng-model="{{list.item}}"></a>
           </td>
           <td>
             <input type="text" data-ng-model="{{list.comments}}"/>
           </td>
           <td>
-            <input type="date" data-ng-model="{{product.deadline}}"/>
+            <input type="date" data-ng-model="{{list.deadline}}"/>
           </td>
+          <td data-ng-click="vm.destroy($index)">&cross;</td>
          </tr>
+         <tr>
+          <td colspan="2">
+            <input type="text" data-ng-model="vm.new_list.item" placeholder="Item" />
+          </td>
+          <td>
+            <input type="text" data-ng-model="vm.new_list.comments" placeholder="Comments" />
+          </td>
+          <td>
+            <input type="date" data-ng-model="vm.new_list.deadline" placeholder="Deadline" />
+          </td>
+          <td data-ng-click="vm.create()">&plus;</td>
+        </tr>
        </tbody>
      </table>
    </main>
