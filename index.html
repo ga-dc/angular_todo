@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-     <meta charset="UTF-8">
-     <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
-  </head>
-  <body>
-    <h1>To Do!</h1>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular ToDo App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+  <script src="app.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body data-ng-app="vm.task">
+  <h1>To Do!</h1>
+
+  <div data-ng-controller='taskController as vm'>
+
+    <form data-ng-submit="vm.create()">
+      <input type="text" data-ng-model="vm.tasks" value="">
+
+
+      <button>submit</button>
+    </form>
+    <ul>
+      <li data-ng-repeat="task in vm.tasks" data-ng-click="vm.edit(task)">
+        <span data-ng-hide="task.isediting">
+
+        </span>
+        <input type="text" data-ng-model="task.isediting" value="">
+
+      </li>
+    </ul>
+  </div>
+</body>
 </html>
