@@ -2,9 +2,7 @@
 
 (function(){
     angular
-    .module('TaskBastard', [
-      // add dependencies here
-    ])
+    .module('TaskBastard', [])
     .controller('TBController', function(){
       var vm = this;
       vm.tasks = data;
@@ -15,8 +13,11 @@
         console.log(vm.tasks)
       }
 
-      vm.edit = function(task){
-        vm.task.update(task)
+      vm.destroy = function(task){
+      var index = vm.tasks.indexOf(task);
+      vm.tasks.splice(index, 1);
       }
+
+
   });
 })();
