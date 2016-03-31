@@ -33,6 +33,7 @@
             {{vm.formTodoText}}
         </input>
         </ul>
+        <button data-ng-click="vm.clearCompleted()"> Remove Completed </button>
         <ul>
           <li
           data-ng-repeat="todo in vm.todos"
@@ -41,7 +42,6 @@
           <a class="done-{{todo.done}}" href="#" editable-text="todo.text">{{todo.text || "empty" }}</a>
         </li>
 
-      <!-- <button data-ng-click="vm.clearCompleted()"> Remove Completed </button> -->
     </div>
   </div>
   </body>
