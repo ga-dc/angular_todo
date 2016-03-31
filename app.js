@@ -33,5 +33,9 @@
       "Pick up Time from airport"
     ];
 
-    
+this.create = function(){
+  this.data.push({title: this.newToDo, completed: false});
+}
+
+
 })();

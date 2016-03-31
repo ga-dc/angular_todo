@@ -6,7 +6,10 @@
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
-  <body>
+  <body data-ng-controller="toDosController" as vm>
     <h1>Brittany! You Must Finish:</h1>
+    <label>Add A New Task</label>
+    <input type="text" data-ng-model="vm.newToDo">
+    <input type="submit" data-ng-click="vm.create()">
   </body>
 </html>
