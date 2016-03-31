@@ -9,6 +9,6 @@
   ]);
 
   function ToDoIndexControllerFunction( ToDoList ){
-    this.toDo = toDoList.query();
-  }
+    console.log("We have so much to do and so little time!")
+   }
 }());
