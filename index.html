@@ -6,7 +6,20 @@
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
-  <body>
+  <body data-ng-app="todo">
     <h1>To Do!</h1>
+    <div class="main" data-ng-controller="todo_controller as vm">
+      <div data-ng-click="vm.toggleForm()">New Todo </div>
+      <form data-ng-show="vm.formIsVisible"  data-ng-submit="vm.create()">
+        <label>Action</label>
+        <input type="text" name="action" data-ng-model="vm.action">
+      </form>
+     <div data-ng-repeat="todo in vm.todoList">
+        <p> {{$index + 1 + ". "}}{{todo}}</p>
+           <div data-ng-click="vm.destroy($index)">
+             Delete
+           </div>
+      </div>
+    </div>
   </body>
 </html>
