@@ -5,8 +5,44 @@
      <title>Angular ToDo App</title>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
+     <script src="xeditable.min.js"></script>
+     <script src="dadl.min.js"></script>
+     <link rel="stylesheet" href="todo.css">
+     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
   </head>
-  <body>
-    <h1>To Do!</h1>
+  <body data-ng-app="todo">
+    <div data-ng-controller="todo_controller as vm">
+      <div class="list">
+      <h1>To Do!</h1>
+        <form>
+          <input type="text" data-ng-model="vm.formTodoText" data-ng-model-instant>
+          <button data-ng-click="vm.addTodo()">Add</button>
+        </form>
+        <ul dnd-list="vm.todos">
+          <li
+          data-ng-repeat="todo in vm.todos"
+          data-ng-hide="todo.done"
+          dnd-draggable="todo"
+          dnd-moved="vm.todos.splice($index, 1)"
+          dnd-effect-allowed="move"
+          dnd-selected="models.selected = todo"
+          ng-class="{'selected': models.selected === todo}">
+            <input type="checkbox" data-ng-model="todo.done">
+            <a class="done-{{todo.done}}" href="#" editable-text="todo.text">{{todo.text || "empty" }}</a>
+          </li>
+            {{vm.formTodoText}}
+        </input>
+        </ul>
+        <button data-ng-click="vm.clearCompleted()"> Remove Completed </button>
+        <ul>
+          <li
+          data-ng-repeat="todo in vm.todos"
+          data-ng-show="todo.done">
+          <input type="checkbox" data-ng-model="todo.done">
+          <a class="done-{{todo.done}}" href="#" editable-text="todo.text">{{todo.text || "empty" }}</a>
+        </li>
+
+    </div>
+  </div>
   </body>
 </html>
