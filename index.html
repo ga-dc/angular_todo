@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-  <html lang="en" data-ng-app="toDo">
+  <html lang="en">
     <head>
       <meta charset="UTF-8">
       <title>Angular ToDo App</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-resource.min.js"></script>
       <script src="data.js"></script>
       <script src="app.js"></script>
@@ -17,26 +15,29 @@
 
       <main data-ng-controller="toDoList as vm">
         <h2>Here's my list! Check them off as you go!</h2>
-        <input type="text" class="form-control" placeholder="Filter on..." />
-     <table class="table table-striped">
+      <input type="text" class="form-control" placeholder="Filter on..."  data-ng-model="vm.filter_on"/>
+      <table class="table table-striped">
        <thead>
          <tr>
-           <td>a-z</td>
            <th>Item</th>
            <th>Comments</th>
+           <th>Deadline</th>
          </tr>
        </thead>
        <tbody>
-         <tr data-ng-repeat="list in vm.data">
-          <td>.</td>
-          <td>{{list.item}}</td>
+        <tr data-ng-repeat="list in vm.data | filter: vm.filter_on">
+          <td>
+            <input type="text" data-ng-model="{{list.item}}"/>
+          </td>
           <td>
             <input type="text"/>
           </td>
-          <td>{{list.comments}}</td>
-           <td>
-             <input type="text"/>
-           </td>
+          <td>
+            <input type="text" data-ng-model="{{list.comments}}"/>
+          </td>
+          <td>
+            <input type="date" data-ng-model="{{product.deadline}}"/>
+          </td>
          </tr>
        </tbody>
      </table>
