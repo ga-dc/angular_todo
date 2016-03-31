@@ -3,25 +3,20 @@
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
-     <script>
-     var tasks = []
-     var tasksInitializer = function(){
-       for (var i = 0; i < 10; i++){
-        tasks.push({
-          name: "task " + i,
-          note: ''
-        })
-       }
-       return tasks;
-     }
-     tasksInitializer();
-     </script>
+     <style>
+      .edit-field {
+        display: none;
+      }
+     </style>
   </head>
   <body data-ng-app="toDoApp">
     <h1>To Do!</h1>
 
     <main data-ng-controller="list_controller as vm">
-
+      <form data-ng-submit="vm.taskAdder()">
+        <input type="text" name="add-task" label="task-input" id="task-field" placeholder="enter new task">
+        <input data-ng-click="vm.taskAdder()" type="button" value="Add Task" id="create-btn">
+      </form>
       <table>
         <thead>
           <tr>
@@ -35,23 +30,39 @@
         <tbody>
           <tr data-ng-repeat="task in vm.tasks">
             <td id="row-index">{{$index + 1}}</td>
-            <td>{{task.name}}</td>
-            <td><input type="textarea" label="task-notes-section" data-ng-model="task.note" id="notes-field" placeholder="add notes"></td>
+            <td>
+              <form data-ng-submit="vm.editTask(task)">
+                <p id="name-text-{{$index}}">{{task.name}}</p>
+                <input data-ng-submit="vm.editTask(task)" type="text" label="name input" id="name-input-{{$index}}" data-ng-model="task.name" class="edit-field" placeholder="edit name" />
+              </form>
+            </td>
+            <td>
+              <form data-ng-submit="vm.editTask(task)">
+                <p id="notes-text-{{$index}}">{{task.notes}}</p>
+                <input type="textarea" label="task-notes-section" id="notes-input-{{$index}}" data-ng-model="task.notes" placeholder="add notes" class="edit-field" /></td>
+              </form>
             <td><input type="checkbox" label="checkbox" id="task-check"></td>
-            <td><button label="edit-button" data-ng-click="vm.editTask()" id="edit-btn">Edit Task</td>
+            <td><button label="edit-button" data-ng-click="vm.editTask(task)" id="edit-btn">Edit Task</td>
             <td><button label="delete-button" data-ng-click="vm.deleteTask(task)" id="delete-btn">Delete Task</td>
           </tr>
         </tbody>
       </table>
-
-      <form>
-        <input type="text" name="add-task" label="task-input" id="task-field" placeholder="enter new task">
-        <input data-ng-click="vm.taskAdder()" type="button" value="Add Task" id="create-btn">
-      </form>
-
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
     <script src="app.js"></script>
+    <script>
+      var tasks = []
+      var tasksInitializer = function(){
+        for (var i = 0; i < 10; i++){
+         tasks.push({
+           name: "task " + i,
+           notes: 'something, something...'
+         })
+        }
+        return tasks;
+      }
+      tasksInitializer();
+    </script>
   </body>
 </html>

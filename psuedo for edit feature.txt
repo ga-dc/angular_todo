@@ -1,0 +1,14 @@
+psuedo for edit feature
+
+a user should be able to edit each task inline on each row in the table
+when a user clicks an edit button,
+  the text in the name <td> should change to an input box
+a user should be able to type into the input box and add a new name/edit name of task.
+when the user clicks an edit button, the name should be updated.
+
+make an edit button
+  edit button should have a click event attached to it
+  when clicked, it should run a function that updates the name of the object at a particular index
+make an input box
+  when edit button is clicked, change name <td> to an input box
+  input box should be hidden until the user decides to edit the name
