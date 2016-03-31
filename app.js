@@ -1,30 +1,29 @@
-"use strict";
-(function(){
-  angular
-  .module("task",[])
-  .controller("taskController", ControllerFunction);
+  'use strict';
+  (function(){
+    angular
+    .module("task",[])
+    .controller("taskController", ControllerFunction);
 
   function ControllerFunction(){
     var vm = this;
-    vm.tasks = [""];
+    vm.tasks = [
+      {text: "eat lunch"}
+    ];
 
-
-
+  };
 
   vm.create = function(){
     console.log("hello");
-    vm.tasks.push(vm.new_task);
+    vm.tasks.push({text: vm.new_task});
     vm.new_task = "";
   };
 
 
-  vm.edit = function(index){
-    console.log(index);
-    console.log(vm.edit);
-    console.log(vm.tasks);
-    vm.isediting = false;
-    vm.tasks[index] = vm.edit;
-      };
+  vm.edit = function(task){
+    console.log(task);
+    task.isediting = true;
+  };
+  };
 
-}
-})();
+
+  })();
