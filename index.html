@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>toDo</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
   <!-- <script src="angular.js"></script> -->
   <script src="data.js"></script>
@@ -10,14 +11,38 @@
 </head>
 <body ng-controller="TBController as tb">
   <h1>Task Bastard</h1>
-  <div ng-repeat="task in tb.tasks | orderBy: -dueDate">
-    <div class="post-it" contenteditable ng-model="text">
-      <h2>{{task.taskContent}}</h2>
-      <h3>{{"due: "}}{{task.dueDate | date:'MM/dd/yyyy'}}</h3>
-    </div>
-  </div>
+  <form>
+  <input type="text" data-ng-model="newTaskContent">
+  <input type="text" data-ng-model="newDueDate">
+  <button data-ng-click="tb.create({taskContent: newTaskContent, dueDate: newDueDate})">submit</button>
+</form>
+<!-- 
+  <div class="post-it" ng-repeat="task in tb.tasks | orderBy: -dueDate">
+      <h2 class="taskContent">{{task.taskContent}}</h2>
+      <h3 class="dueDate">{{"due: "}}{{task.dueDate}}</h3>
+  </div> -->
+  <table id="PostTable">
+    <thead>
+      <th colspan="3"></th>
+    </thead>
+    <tbody ng-repeat="task in tb.tasks">
+      <tr>
+        <td class="post-it">
+          <p class="taskContent">{{task.taskContent}}</p>
+          <p class="dueDate">{{"due: "}}{{task.dueDate}}</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>{{newTask}}</h3>
   </body>
   </html>
+
+
+
+
+
   <!-- <button ng-show="app.item.thingwesettotrue"> will only show if the "thing we set as true is true" -->
   <!-- ng-hide will hide when something is true  -->
 <!-- 1. why wont this work? (see directly above)

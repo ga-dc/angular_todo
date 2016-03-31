@@ -1,33 +1,22 @@
 "use strict";
 
-var app = angular.module('TaskBastard', []);
+(function(){
+    angular
+    .module('TaskBastard', [
+      // add dependencies here
+    ])
+    .controller('TBController', function(){
+      var vm = this;
+      vm.tasks = data;
+      console.log(vm.tasks);
 
-app.controller('TBController', function(){
-this.tasks = tasks;
-console.log(this.tasks);
+      vm.create = function(task){
+        vm.tasks.push(task)
+        console.log(vm.tasks)
+      }
 
-});
-
-
-
-
-// (function(){
-//   angular
-//   .module("TaskBastard", [])
-//   .controller("AppController", AppController
-//   );
-//
-//   function AppController(){
-//     var vm = this;
-//     vm.taskList = data;
-//     console.log(vm.taskList);
-//
-//
-//     vm.newTask = function(){
-//       vm.taskList.push({task: vm.taskText})
-//
-//
-//     };
-//   }
-// })();
-// // these close out iffe
+      vm.edit = function(task){
+        vm.task.update(task)
+      }
+  });
+})();

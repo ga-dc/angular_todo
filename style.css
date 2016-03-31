@@ -1,0 +1,16 @@
+#PostTable{
+  margin: 0 auto;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+}
+
+.post-it{
+  background-image:url("Post-it-note-transparent.png");
+  width:300px;
+  height: 300px;
+}
+
+.post-it > p{
+  text-align: center;
+}
