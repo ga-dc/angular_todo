@@ -3,9 +3,16 @@
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
      <style>
       .edit-field {
         display: none;
+      }
+      .edit-select {
+        cursor: pointer;
+      }
+      td {
+        border: 1px solid orange;
       }
      </style>
   </head>
@@ -17,7 +24,7 @@
         <input type="text" name="add-task" label="task-input" id="task-field" placeholder="enter new task">
         <input data-ng-click="vm.taskAdder()" type="button" value="Add Task" id="create-btn">
       </form>
-      <table>
+      <table class="table">
         <thead>
           <tr>
             <td>No.</td>
@@ -30,15 +37,15 @@
         <tbody>
           <tr data-ng-repeat="task in vm.tasks">
             <td id="row-index">{{$index + 1}}</td>
-            <td>
+            <td ng-click="vm.editTask(task)" >
               <form data-ng-submit="vm.editTask(task)">
-                <p id="name-text-{{$index}}">{{task.name}}</p>
+                <p id="name-text-{{$index}}" class="edit-select">{{task.name}}</p>
                 <input data-ng-submit="vm.editTask(task)" type="text" label="name input" id="name-input-{{$index}}" data-ng-model="task.name" class="edit-field" placeholder="edit name" />
               </form>
             </td>
-            <td>
+            <td ng-click="vm.editTask(task)">
               <form data-ng-submit="vm.editTask(task)">
-                <p id="notes-text-{{$index}}">{{task.notes}}</p>
+                <p id="notes-text-{{$index}}" class="edit-select">{{task.notes}}</p>
                 <input type="textarea" label="task-notes-section" id="notes-input-{{$index}}" data-ng-model="task.notes" placeholder="add notes" class="edit-field" /></td>
               </form>
             <td><input type="checkbox" label="checkbox" id="task-check"></td>
