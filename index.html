@@ -14,16 +14,15 @@
 
     <button ng-click="new()"> New </button>
     <div ng-app>
-      <div ng-controller="ClickToEditCtrl">
-        <a href="#" ng-click="editorEnabled=!editorEnabled">List</a>
-        <div ng-show="editorEnabled">
-          <input ng-model="todos">
-            <a href="#" ng-click="editorEnabled=!editorEnabed">Done?</a>
-            <div>
+      <div ng-controller="ClickToEdit">
+    <form data show="vm.formIsVisible" data-ng-submit="vm.create()">
+      <label>content</label>
+      <input type="text"name="content" data-ng-model="vm.content"></form>
         </div>
       </div>
     </div>
-
+<div data-ng-repeat_"todo in vm.todos">
+  <p data-ng-show="!editTodo">{{$index +1+"."}}{{todos}}</p>
 
 
     <button ng-click="edit()"> Edit</button>
