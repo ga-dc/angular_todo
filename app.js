@@ -7,9 +7,9 @@
 
   function TaskController() {
     var vm = this;
-    vm.data = ['sample1',
-              'sample2',
-              'sample3'];
+    vm.data = ['Walk the dogs',
+              'Fold the laundry',
+              'Clean out the roomba'];
 
     vm.new_task = '';
     vm.create = function() {

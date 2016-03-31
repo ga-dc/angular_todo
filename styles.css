@@ -1,3 +1,24 @@
+body {
+  background-image: url('paper.jpg');
+  /*Image from http://i37.servimg.com/u/f37/14/17/99/90/notepa10.jpg */
+  background-size: cover;
+  font-size: 25px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
 ul {
   list-style-type: none;
+}
+
+.notepad {
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 25px 0 0 200px;
+  text-align: left;
+  font-family: 'Crafty Girls', cursive;
 }
