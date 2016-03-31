@@ -7,6 +7,7 @@
 
   function myTodoController($scope){
     var vm = $scope
-    vm.todo
+    vm.task
+    vm.todos = todos;
     }
   })();

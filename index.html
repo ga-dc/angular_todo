@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-     <meta charset="UTF-8">
-     <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
-  </head>
-  <body data-ng-app="myTodo">
-    <h1>Welcome to my To-Do List!</h1>
-    <div class="list" data-ng-controller="vm">
-      <input ng-model="todo.completed" type="checkbox"/>
-      <label ng-hide="edit" class="edit label"> {{todo.name}} </label>
-      <input ng-show="edit" ng-model="todo.name" class="edit" type="text"/>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular ToDo App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="data.js"></script>
+</head>
+<body data-ng-app="myTodo">
+  <h1>Welcome to my To-Do List!</h1>
+  <div class="list" data-ng-controller="vm">
+    <div ng-repeat="task in todos">
+      <input ng-model="task.completed" type="checkbox"/>
+      <label ng-hide="edit" class="edit label"> {{task.name}} </label>
+      <input ng-show="edit" ng-model="task.name" class="edit" type="text"/>
       <div class="actions">
         <button ng-click="edit = !edit">edit</button>
         <button>save</button>
         <button>delete</button>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
