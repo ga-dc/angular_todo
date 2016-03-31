@@ -9,5 +9,9 @@
     var vm = $scope
     vm.task
     vm.todos = todos;
+
+    vm.destroy = function(index) {
+      vm.todos.splice(index, 1);
     }
-  })();
+  }
+})();

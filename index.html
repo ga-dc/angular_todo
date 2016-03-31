@@ -17,7 +17,7 @@
       <div class="actions">
         <button ng-click="edit = !edit">edit</button>
         <button>save</button>
-        <button>delete</button>
+        <button ng-click="destroy(todos.indexOf(task))">delete</button>
       </div>
     </div>
   </div>
