@@ -21,14 +21,14 @@
       </thead>
       <tbody>
         <tr data-ng-repeat="task in list">
-          <td> {{index + 1}}</td>
+          <td> {{$index + 1}}</td>
           <td>{{list.task}}</td>
           <td>{{list.detail}}</td>
         </tr>
         <tr>
           <td></td>
-          <td><input type="text" data-ng-model="list.new_task.task" placeholder="What's the task?"/></td>
-          <td><input type="text" data-ng-model="list.new_task.detail" placeholder="What do you need to do?"/></td>
+          <td><input type="text" data-ng-model="list.new_task.task" placeholder="What's the task?" id="task_input"/></td>
+          <td><input type="text" data-ng-model="list.new_task.detail" placeholder="What do you need to do?" id="detail_input"/></td>
           <td data-ng-click="list.create()">&plus;</td>
       </tbody>
     </table>

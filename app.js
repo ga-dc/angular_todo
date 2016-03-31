@@ -19,9 +19,10 @@
         list.task.push(angular.copy(list.new_task));
         list.detail.push(angular.copy(list.new_detail));
         list.new_task = {};
-        
-        list.new_detail.push(list.detail);
-        list.new_task.push(list.task);
+        var added_detail = document.getElementById('task_input').value;
+        var added_task = document.getElementById('detail_input').value;
+        added_detail.push(list.detail);
+        added_task.push(list.task);
   }
 
 
