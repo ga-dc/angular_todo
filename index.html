@@ -1,12 +1,48 @@
 <!DOCTYPE html>
   <html lang="en">
   <head>
-     <meta charset="UTF-8">
-     <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <title>Angular ToDo App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="data.js"></script>
+    <script src="xeditable.min.js"></script>
+    <script src="app.js"></script>
   </head>
-  <body>
-    <h1>To Do!</h1>
+  <body class="container" data-ng-app="todo">
+    <header class="jumbotron">
+      <h1>To Do!</h1>
+    </header>
+
+    <main data-ng-controller="todo_controller as vm">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-ng-repeat="todo in vm.data">
+            <td>{{$index + 1}}</td>
+            <td contenteditable="true">{{todo.task}}</td>
+            <!-- <td><input type="text" data-ng-model="todo.task"></td> -->
+            <!--  Thanks for your help Becky! Shortly after our one on one we discovered an out of the box Angular attribute called contenteditable. It's awesome!-->
+            <td data-ng-click="vm.destroy(todo)">&cross;</td>
+          </tr>
+          <tr>
+            <td>Add!</td>
+            <td>
+              <input type="text" data-ng-model="vm.new_todo.task" placeholder="To-Do" />
+            </td>
+            <td data-ng-click="vm.create()">&plus;</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </main>
   </body>
 </html>
