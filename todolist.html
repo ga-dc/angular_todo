@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app1">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>To Do List</title>
+  <link href="bootstrap.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="angular.js"></script>
+  <script src="data.js"></script>
+  <link href="todolist.css" rel="stylesheet">
+  <script src="todolist.js"></script>
+</head>
+
+<body>
+  <div class="container" ng-controller="ctrl1 as vm">
+    <center>
+      <label>Name:</label>
+      <input type="text" placeholder="Enter your name" ng-model="yourname"> </center>
+      <h1>Hello! <span class="othername">{{ yourname }}</span> Enter your ToDo's below!</h1>
+      <div class="jumbotron">
+        <h1 id="todolist">Nyron's To Do List</h1> </div>
+        <div class="col-xs-12">
+
+
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>List</th>
+                <th>Activity Name<br><input type="text" placeholder="Filter on..." data-ng-model="errandfilter"/></th>
+
+                <th>Add Notes<br>  <input type="text" placeholder="Filter on..." data-ng-model="notesfilter"/></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-ng-repeat="list in vm.data | filter: {Errand: errandfilter} | filter: {Notes: notesfilter}">
+                <th scope="row">1</th>
+                <td>{{list.Errand}}</td>
+                <td>{{list.Notes}}</td>
+                <td><input type="button" value="delete" ng-click="vm.delete(this.list)"></td>
+                <td><input type="button" value="edit" ng-click="vm.edit(this.list)"></td>
+              </tr>
+
+              <tr>
+                <td data-ng-click="vm.create()">&plus;</td>
+                <td>
+                  <input type="text" class="clear" data-ng-model="vm.new_list_item.Errand" placeholder="Activity Name" /> </td>
+                  <td>
+                    <input type="text" class="clear" data-ng-model="vm.new_list_item.Notes" placeholder="Add Notes" /> </td>
+
+
+                  </tr>
+                </tbody> </table>
+
+                <div id="edit" class="col-xs-12">
+                  <input class="clear" id="editname" type="text" placeholder="edit Activity" /> </td>
+                  <input class="clear" id="editnotes" type="text" placeholder="edit Notes" /> </td>
+                  <td><input type="button" value="edit" ng-click="vm.editdone()"></td>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </body>
+
+        </html>

@@ -1,0 +1,22 @@
+/**{
+border: 1px solid black;
+}*/
+
+h1{
+  text-align: center;
+}
+#todolist{
+  color: blue;
+}
+.othername{
+  color: green;
+}
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
+#edit{
+display: none;
+  top: 10px;
+  right: 10px;
+}
