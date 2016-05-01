@@ -12,10 +12,19 @@
 
     <header>
       <h1>To Do! colon subtitle the stuff below</h1>
-      <span data-ng-repeat = "todo in vm.todos_list">
-       - {{todo}}
-     </span>
+
+      <li data-ng-repeat = "todo in vm.todos_list">
+       {{todo}}
+     </li>
     </header>
+
+    <section>
+         Add to the list:
+         <form data-ng-submit = "vm.new_todo()" >
+           <input type="text" data-ng-model="vm.new_todo_item" placeholder="Type Task here!"/>
+         </form>
+
+    </section>
 
 
 
