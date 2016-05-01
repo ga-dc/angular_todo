@@ -8,11 +8,16 @@
   </head>
   <body data-ng-app = "todo">
 
+    <main data-ng-controller = "todos_controller as vm">
+
     <header>
-      <h1>To Do!</h1>
+      <h1>To Do! colon subtitle the stuff below</h1>
+      <span data-ng-repeat = "todo in vm.todos_list">
+       - {{todo}}
+     </span>
     </header>
 
-    <main data-ng-controller = "todos_controller as vm">
+
 
     </main>
 
