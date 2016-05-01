@@ -9,10 +9,12 @@
     var vm = this;
     vm.todos_list = ["oh","uh","blah"];
 
-    var new_todo = function(){
-
+    // Create
+    vm.new_todo = function(){
+        vm.todos_list.push(vm.new_todo_item);
+        vm.new_todo_item = "";
     };
-    
+
   }
 
 })();
