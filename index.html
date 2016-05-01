@@ -23,7 +23,7 @@
          <input data-ng-model = "vm.todo_to_edit" type="text">
        </form>
        |
-       <span>
+       <span data-ng-click = "vm.destroy_todo($index)">
          Delete
        </span>
        |
