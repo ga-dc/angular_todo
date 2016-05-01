@@ -1,12 +1,56 @@
 <!DOCTYPE html>
-  <html lang="en">
+<html>
   <head>
-     <meta charset="UTF-8">
-     <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
+    <title>Product List</title>
+    <link rel="stylesheet" href="bootstrap.css" />
+    <script src="angular.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
   </head>
-  <body>
-    <h1>To Do!</h1>
+  <body class="container" data-ng-app="toDo">
+    <header class="jumbotron">
+      <h1>To Do List</h1>
+    </header>
+
+    <main data-ng-controller="toDo_controller as vm">
+
+      <input type="text" class="form-control" placeholder="Filter on..." data-ng-model="vm.filter_on" />
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td data-ng-click="vm.is_descending = !(vm.is_descending)">
+              <span data-ng-if="vm.is_descending">z-a</span>
+              <span data-ng-if="!vm.is_descending">a-z</span>
+            </td>
+            <th data-ng-click="vm.sort_data_by('title')">Title</th>
+            <th data-ng-click="vm.sort_data_by('body')">Content</th>
+            <th>Notes</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-ng-repeat="note in vm.data | filter: vm.filter_on | orderBy: vm.sort_on : vm.is_descending">
+            <td>{{$index + 1}}
+            </td>
+            <td>
+              {{note.title}}
+            </td>
+            <td>
+              {{note.body}}
+            </td>
+            <td data-ng-click="vm.destroy($index)">&cross;</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="text" data-ng-model="vm.new_note.title" placeholder="New Note Title" />
+            </td>
+            <td>
+              <input type="text" data-ng-model="vm.new_note.body" placeholder="New Note Body" />
+            </td>
+            <td data-ng-click="vm.create()">&plus;</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
   </body>
 </html>
