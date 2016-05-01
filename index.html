@@ -15,6 +15,18 @@
 
       <li data-ng-repeat = "todo in vm.todos_list">
        {{todo}}
+       |
+       <span data-ng-click = "vm.edit_todo($index); showEdit = !showEdit">
+         Edit
+       </span>
+       <form data-ng-show = "showEdit" data-ng-submit = "showEdit = !showEdit; vm.update_todo($index)">
+         <input data-ng-model = "vm.todo_to_edit" type="text">
+       </form>
+       |
+       <span>
+         Delete
+       </span>
+       |
      </li>
     </header>
 
@@ -23,13 +35,9 @@
          <form data-ng-submit = "vm.new_todo()" >
            <input type="text" data-ng-model="vm.new_todo_item" placeholder="Type Task here!"/>
          </form>
-
     </section>
 
-
-
     </main>
-
 
   </body>
 </html>
