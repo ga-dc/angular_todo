@@ -15,6 +15,14 @@
         vm.new_todo_item = "";
     };
 
+    vm.edit_todo = function(id){
+        vm.todo_to_edit = vm.todos_list[id];
+    };
+
+    vm.update_todo = function(id){
+      vm.todos_list[id] = vm.todo_to_edit;
+    };
+
   }
 
 })();
