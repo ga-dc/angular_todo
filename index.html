@@ -6,7 +6,38 @@
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
-  <body>
-    <h1>To Do!</h1>
+  <body data-ng-app = "todo">
+
+    <main data-ng-controller = "todos_controller as vm">
+
+    <header>
+      <h1>To Do! colon subtitle the stuff below</h1>
+
+      <li data-ng-repeat = "todo in vm.todos_list">
+       {{todo}}
+       |
+       <span data-ng-click = "vm.edit_todo($index); showEdit = !showEdit">
+         Edit
+       </span>
+       <form data-ng-show = "showEdit" data-ng-submit = "showEdit = !showEdit; vm.update_todo($index)">
+         <input data-ng-model = "vm.todo_to_edit" type="text">
+       </form>
+       |
+       <span data-ng-click = "vm.destroy_todo($index)">
+         Delete
+       </span>
+       |
+     </li>
+    </header>
+
+    <section>
+         Add to the list:
+         <form data-ng-submit = "vm.new_todo()" >
+           <input type="text" data-ng-model="vm.new_todo_item" placeholder="Type Task here!"/>
+         </form>
+    </section>
+
+    </main>
+
   </body>
 </html>
