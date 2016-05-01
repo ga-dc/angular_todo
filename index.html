@@ -9,9 +9,10 @@
   <body html lang='en' ng-app='todo'>
 
     <h1>To Do!</h1>
-    <div>{{5 + 5}}</div>
-    <div>{{5 == "5"}}</div>
-    <div>{{5 === "5"}}</div>
-    <div>{{"pizza"}}</div>
+    <div data-ng-controller='todosController as vm'>
+      <a href="#" ng-click="todosViewModel.sayHello()">Say Hello</a>
+    </div>
+
+
   </body>
 </html>
