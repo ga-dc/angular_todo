@@ -23,6 +23,11 @@
       vm.todos_list[id] = vm.todo_to_edit;
     };
 
+    //guittr done yo
+    vm.destroy_todo = function(id){
+      vm.todos_list.splice(id, 1);
+    };
+
   }
 
 })();
