@@ -10,7 +10,14 @@
 
     <h1>To Do!</h1>
     <div data-ng-controller='todosController as vm'>
-      <a href="#" ng-click="todosViewModel.sayHello()">Say Hello</a>
+      <div ng-click="vm.toggleForm()">New Todo</div>
+      <form ng-show="vm.formIsVisible">
+        <label>content</label>
+        <input type="text" name="content">
+      </form>
+    </div>
+
+    <div data-ng-repeat="todo in vm.todos">
     </div>
 
 

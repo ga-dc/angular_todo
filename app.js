@@ -17,4 +17,18 @@ function ControllerFunction(){
     "Wake up like this"
   ];
 
+  this.formIsVisible = false
+  this.toggleForm = function(){
+    console.log("toggleform")
+    if(this.formIsVisible){
+      this.formIsVisible = false
+    }
+    else{
+      this.formIsVisible = true
+    }
+  }
+
+};
+
+
 }
