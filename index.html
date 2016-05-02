@@ -7,6 +7,11 @@
      <script src="app.js"></script>
   </head>
   <body>
-    <h1>To Do!</h1>
+    <div ng-controller="Todoist">
+     <input ng-model="myTodolist">
+     <button ng-click="todo('task')">Make todo</button>
+     <button ng-click="todo(editTodo)">Edit Todo</button>
+     <p>Do this {{todo}}</p>
+    </div>
   </body>
 </html>
