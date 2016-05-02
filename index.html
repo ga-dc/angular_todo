@@ -15,7 +15,13 @@
       <button data-ng-click="vm.createNew()">New Todo</button>
 
       <div data-ng-repeat="todo in vm.todos">
-        <p data-ng-show="!editTodo">{{$index + 1 + ". "}}{{todo}}></p>
+        <p data-ng-show="!editTodo">{{$index + 1 + ". "}}{{todo}}</p>
+          <button class="edit" data-ng-click="vm.edit($index); editTodo = !editTodo">Edit Todo</button>
+          <form data-ng-show="editTodo">
+            <input type="text" name="content" data-ng-model="vm.content">
+            <button class="new" data-ng-click="vm.update($index); editTodo = !editTodo">Save</button>
+            <button data-ng-click='editTodo = !editTodo' class='cancel'>Cancel</button>
+          </form>
       </div>
 
     </main>
