@@ -11,15 +11,15 @@
     vm.hello = "Hello Pizza!";
     console.log("pizza is displayed");
 
-    vm.new_todo = {};
+
     vm.createNew = function(){
       console.log("New Todo clicked");
       vm.todos.unshift(vm.new_todo);
-      vm.new_todo = {};
+      vm.new_todo = "";
       console.log(vm.todos);
       }
 
-    
+
 
   }
 

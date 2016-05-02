@@ -10,9 +10,14 @@
     <h1>To Do!</h1>
     <main data-ng-controller="todoController as vm">
       <h2>{{vm.hello}}</h2>
+
       <p><input type="text" name="To-Do" data-ng-model="vm.new_todo" /></p>
       <button data-ng-click="vm.createNew()">New Todo</button>
-      <p>{{vm.todos}}</p>
+
+      <div data-ng-repeat="todo in vm.todos">
+        <p data-ng-show="!editTodo">{{$index + 1 + ". "}}{{todo}}></p>
+      </div>
+
     </main>
   </body>
 </html>
