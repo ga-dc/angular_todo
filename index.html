@@ -4,9 +4,40 @@
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+     <script src="data.js"></script>
      <script src="app.js"></script>
   </head>
-  <body>
-    <h1>To Do!</h1>
+  <body data-ng-app="todo">
+    <main data-ng-controller="todo_controller as vm">
+      <h1>To Do!</h1>
+      <table>
+        <thead>
+          <th>Todo:</th>
+          <th>Priority:</th>
+        </thead>
+        <tbody>
+          <form ng-submit="vm.addTodo()">
+            <tr>
+              <td><input type="text" data-ng-model="vm.task" name="task" /></td>
+              <td><input type="text" data-ng-model="vm.priority" name="priority" /></td>
+              <td><input type="submit" value="Add new" data-ng-click="Submit" /></td>
+            </tr>
+          </form>
+          <tr data-ng-repeat="todo in vm.data">
+            <div data-ng-if="vm.editing==false">
+              <td>{{todo.task}}</td>
+              <td>{{todo.priority}}</td>
+              <td><button data-ng-click="vm.editing = $index">Edit</button></td>
+              <td><button data-ng-click="vm.delete($index)">Delete</button></td>
+            </div>
+            <form data-ng-if="vm.editing==$index">
+              <td><input type="text" data-ng-model="vm.task_edit" name="task" /></td>
+              <td><input type="text" data-ng-model="vm.priority_edit" name="priority" /></td>
+              <td><input type="submit" value="Update" data-ng-click="vm.update($index); vm.editing = false" /></td>
+            </form>
+          </tr>
+        </tbody>
+      </table>
+    </main>
   </body>
 </html>
