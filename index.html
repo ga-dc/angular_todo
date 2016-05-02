@@ -8,8 +8,9 @@
   </head>
   <body data-ng-app="todo">
     <h1>To Do!</h1>
-    <main data-ng-controller="todo_controller as vm">
+    <main data-ng-controller="todoController as vm">
       <h2>{{vm.hello}}</h2>
+      <h3 data-ng-click="vm.createNew()">New Todo</h3>
     </main>
   </body>
 </html>
