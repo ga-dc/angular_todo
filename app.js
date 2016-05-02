@@ -8,6 +8,7 @@
   function TodoController(){
     var vm = this;
     vm.data = data;
+    vm.editing = null;
     vm.addTodo = function(){
       vm.data.push({"task":this.task, "priority":this.priority});
     };

@@ -24,16 +24,16 @@
             </tr>
           </form>
           <tr data-ng-repeat="todo in vm.data">
-            <div data-ng-hide="vm.editing">
+            <div data-ng-hide="(vm.editing == $index)">
               <td>{{todo.task}}</td>
               <td>{{todo.priority}}</td>
-              <td><button data-ng-click="vm.editing = true">Edit</button></td>
+              <td><button data-ng-click="vm.editing = $index">Edit</button></td>
               <td><button data-ng-click="vm.delete($index)">Delete</button></td>
             </div>
-            <form data-ng-show="vm.editing">
+            <form data-ng-show="(vm.editing == $index)">
               <td><input type="text" data-ng-model="vm.task_edit" name="task" /></td>
               <td><input type="text" data-ng-model="vm.priority_edit" name="priority" /></td>
-              <td><input type="submit" value="Update" data-ng-click="vm.update($index); vm.editing = false" /></td>
+              <td><input type="submit" value="Update" data-ng-click="vm.update($index); vm.editing = null" /></td>
             </form>
           </tr>
         </tbody>
