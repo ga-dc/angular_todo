@@ -6,7 +6,61 @@
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
   </head>
-  <body>
-    <h1>To Do!</h1>
+  <body class="container" data-ng-app="todo">
+    <header class="header">
+      <h1>To Do!</h1>
+    </header>
+
+    <main data-ng-controller="todo_controller as vm">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td data-ng-click="vm.is_descending = !(vm.is_descending)">
+              <span data-ng-if="vm.is_descending">z-a</span>
+              <span data-ng-if="!vm.is_descending">a-z</span>
+            </td>
+            <th data-ng-click="vm.sort_data_by('name')">Name</th>
+            <th data-ng-click="vm.sort_data_by('date_entered')">Date Entered</th>
+            <th data-ng-click="vm.sort_data_by('date_completed')">Date Completed</th>
+            <th data-ng-click="vm.sort_data_by('description')">Description</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-ng-repeat="item in vm.data | filter: vm.filter_on | orderBy: vm.sort_on : vm.is_descending">
+            <td>{{$index + 1}}</td><!-- 
+            <td>
+              <input type="date" data-ng-model="item.name"  />
+            </td>
+            <td>
+              <input type="date" data-ng-model="item.date_entered"  />
+            </td> -->
+            <td>{{item.name}}</td>
+            <td>{{item.date_entered}}</td>
+            <td>{{item.date_completed}}</td>
+            <td>{{item.description}}</td>
+            <td>
+              <input type="text" data-ng-model="item.description" />
+            </td>
+            <td data-ng-click="vm.destroy($index)">&cross;</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="text" data-ng-model="vm.new_item.name" placeholder="Name" />
+            </td>
+            <td>
+              <input type="date" data-ng-model="vm.new_item.cost" placeholder="Date Entered" />
+            </td>
+            <td>
+              <input type="date" data-ng-model="vm.new_item.quantity" placeholder="Date Completed" />
+            </td>
+            <td>
+              <input type="text" data-ng-model="vm.new_item.country" placeholder="Description" />
+            </td>
+            <td data-ng-click="vm.create()">&plus;</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
   </body>
 </html>
