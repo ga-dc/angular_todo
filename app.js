@@ -25,10 +25,12 @@
     }
 
     vm.update = function(index){
-      vm.todos[index] = vm.content
+      vm.todos[index] = vm.content;
     }
 
-    
+    vm.delete = function(index){
+      vm.todos.splice (index, 1);
+    }
 
   }
 
