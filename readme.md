@@ -21,3 +21,8 @@ Users should be able to...
 
 Deploy it to Github Pages!
 
+Pseudocode:
+Use data-ng-repeat to display all tasks
+Use a clickable element to create todos
+Use a clickable element to edit todos
+Use a clickable element to delete todos
