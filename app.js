@@ -7,7 +7,6 @@
 
 })()
 
-
 function ControllerFunction(){
   var vm = this;
   this.todos = [
@@ -38,10 +37,12 @@ function ControllerFunction(){
     this.content = todo;
   };
 
-// when called, this will replace the content of a todo at at an index value that
-// passed in as an argument.
   vm.update = function(index){
     vm.todos[index] = vm.content;
+  };
+
+  vm.delete = function(index) {
+    vm.todos.splice( index, 1 );
   };
 
 
