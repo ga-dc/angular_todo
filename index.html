@@ -1,12 +1,40 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-     <meta charset="UTF-8">
-     <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
-  </head>
-  <body>
-    <h1>To Do!</h1>
-  </body>
+<html lang="en">
+<head>
+  <title>Much Todo About Nothing</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body data-ng-app="myApp">
+
+<h1>Much Todo About Nothing</h1>
+
+<section data-ng-controller="todoController as tc">
+
+  <section class="todos">
+    <h2>ToDo:</h2>
+    <div class="todo incomplete" data-ng-repeat="todo in tc.todos | filter: {completed: false}">
+      {{todo.text}}
+      <input type="checkbox" data-ng-model="todo.completed">
+    </div>
+  </section>
+
+  <section class="todos">
+    <h2>Completed:</h2>
+    <div class="todo complete" data-ng-repeat="todo in tc.todos | filter: {completed: true}">
+      {{todo.text}}
+      <input type="checkbox" data-ng-model="todo.completed">
+    </div>
+  </section>
+
+  <section class="todos">
+    <h2>Add New:</h2>
+    <input type="text" data-ng-model="tc.newTodo.text">
+    <button data-ng-click="tc.addTodo()">Add Todo!</button>
+  </section>
+
+</section>
+
+</body>
 </html>

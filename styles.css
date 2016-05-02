@@ -1,0 +1,24 @@
+body {
+  background: lemonchiffon;
+}
+
+.todos {
+  width: 30%;
+  float: left;
+  margin: 0 1%;
+}
+
+.todo {
+  width: 90%;
+  border: 1px solid black;
+  margin: 1em 0;
+  padding: 1em;
+}
+
+.complete {
+  background: rgba(0, 120, 50, .3);
+}
+
+.incomplete {
+  background: rgba(120, 0, 50, .3);
+}
