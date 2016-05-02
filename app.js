@@ -26,9 +26,24 @@ function ControllerFunction(){
     else{
       this.formIsVisible = true
     }
-  }
+  };
 
+  vm.create = function(){
+    vm.todos.unshift(vm.content);
+    vm.content = "";
 };
+
+  vm.edit = function(index){
+    var todo = vm.todos[index];
+    this.content = todo;
+  };
+
+// when called, this will replace the content of a todo at at an index value that
+// passed in as an argument.
+  vm.update = function(index){
+    vm.todos[index] = vm.content;
+  };
+
 
 
 }
