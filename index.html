@@ -3,10 +3,34 @@
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
      <script src="app.js"></script>
+     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <body>
-    <h1>To Do!</h1>
+  <body data-ng-app='todo'>
+
+    <h1 class = "heading">To Do!</h1>
+    <div  data-ng-controller='todosController as vm'>
+      <div class="new_todo">
+      <div  ng-click="vm.toggleForm()">New Todo</div>
+      <form ng-show="vm.formIsVisible" data-ng-submit="vm.create()">
+        <label>content</label>
+        <input class="box" type="text" name="content" data-ng-model="vm.content">
+      </form>
+      </div>
+
+    <div class= "show" data-ng-repeat="todo in vm.todos">
+      <p ng-show="!editTodo">{{todo}}</p>
+      <button class ="edit" ng-click="vm.edit($index); editTodo = !editTodo">Edit Todo</button>
+      <button class ="delete" ng-click="vm.delete($index); deleteTodo = !deleteTodo">Delete Todo</button>
+      <form ng-show="editTodo">
+        <input type="text" name="content" ng-model="vm.content">
+        <button class="new" ng-click="vm.update($index); editTodo = !editTodo">Save</button>
+        <button ng-click='editTodo = !editTodo' class='cancel'>Cancel</button>
+      </form>
+
+
+    </div>
+  </div>
   </body>
 </html>
