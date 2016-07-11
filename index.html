@@ -1,12 +1,40 @@
 <!DOCTYPE html>
-  <html lang="en">
+  <html lang="en" data-ng-app="task">
   <head>
      <meta charset="UTF-8">
      <title>Angular ToDo App</title>
+     <link rel="stylesheet" href="bootstrap.css" />
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
      <script src="app.js"></script>
+     <script src="data.js"></script>
   </head>
-  <body>
+  <body data-ng-controller="taskController as vm">
     <h1>To Do!</h1>
+    <input type="text" class="form-control" placeholder="Filter on..." data-ng-model="vm.filter_on" />
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <td>a-z</td>
+            <th>To Do item</th>
+            <th>Description (opt.)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-ng-repeat="task in vm.data | filter: vm.filter_on">
+            <td>{{$index+1}}</td>
+            <td>{{task.subject}}</a>
+            </td>
+            <td>{{task.description}}</td>
+          </tr>
+          <tr>
+              <td>Add a new task to the list:</td>
+              <form data-ng-submit="vm.addTask(newSubj, newDesc)">
+                  <td><input type="text" data-ng-model="newSubj"  /></td>
+                  <td><input type="text" data-ng-model="newDesc"  /></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn" type="submit" >Add Task</button>
+              </form>
   </body>
 </html>
