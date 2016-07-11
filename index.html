@@ -15,22 +15,26 @@
         <thead>
           <tr>
             <td>a-z</td>
-            <th>To Do item</th>
-            <th>Description (opt.)</th>
+            <th data-ng-click="vm.sort_data_by('subject')">Subject</th>
+            <th data-ng-click="vm.sort_data_by('description')">Description (opt.)</th>
+            <th data-ng-click="vm.sort_data_by('urgency')">Urgency</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr data-ng-repeat="task in vm.data | filter: vm.filter_on">
+          <tr data-ng-repeat="task in vm.data | filter: vm.filter_on | orderBy: vm.sort_on">
             <td>{{$index+1}}</td>
-            <td>{{task.subject}}</a>
-            </td>
+            <td>{{task.subject}}</td>
             <td>{{task.description}}</td>
+            <td>{{task.urgency}}</td>
+            <td data-ng-click="vm.destroy(task)">&cross;</td>
           </tr>
           <tr>
               <td>Add a new task to the list:</td>
-              <form data-ng-submit="vm.addTask(newSubj, newDesc)">
+              <form data-ng-submit="vm.addTask(newSubj, newDesc, newUrg)">
                   <td><input type="text" data-ng-model="newSubj"  /></td>
                   <td><input type="text" data-ng-model="newDesc"  /></td>
+                  <td><input type="text" data-ng-model="newUrg"  /></td>
           </tr>
         </tbody>
       </table>
