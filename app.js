@@ -21,14 +21,14 @@
         });
         vm.newTodo = {};
       }
-      vm.completeTodo = function (index) {
+      vm.removeTodo = function (index) {
         if (vm.todos[index]) {
-          vm.todos[index].completed = !todo.completed
+          vm.todos.splice(index, 1)
         }
       }
-      vm.removeTodo = function (todo) {
+      vm.updateTodo = function (todo) {
         if (todo) {
-          vm
+          todo.showEditForm = !todo.showEditForm
         }
       }
     }
