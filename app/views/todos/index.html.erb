@@ -17,6 +17,7 @@
         <span data-ng-hide="todo.showEditForm">{{todo.title}}</span>
         <button data-ng-hide="todo.showEditForm" data-ng-click="todo.showEditForm = !todo.showEditForm">✎</button>
         <input type="text" data-ng-model="todo.title" data-ng-show="todo.showEditForm">
+        <input type="checkbox" data-ng-model="todo.completed" data-ng-show="todo.showEditForm">
         <button data-ng-show="todo.showEditForm" data-ng-click="vm.updateTodo(todo)">Update</button>
         <button data-ng-click="vm.removeTodo($index)">✗</button>
       </li>
