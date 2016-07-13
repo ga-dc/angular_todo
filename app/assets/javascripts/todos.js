@@ -2,17 +2,15 @@
 
 (function () {
   angular
-    .module("todos", [])
-    .controller("todosCtrl", [ctrlFunction])
+    .module("todos", ["ngResource"])
+    .controller("todosCtrl", ["$resource", ctrlFunction])
 
-    function ctrlFunction () {
+    function ctrlFunction ($resource) {
       var vm = this;
-      vm.todos = [
-        {title: "Walk the dog", completed: false},
-        {title: "Buy groceries", completed: false},
-        {title: "Eat foot", completed: false},
-        {title: "Smell fish", completed: false}
-      ];
+      var Todo = $resource("/todos/:id.json", {}, {
+        update: {method: "PUT"}
+      });
+      vm.todos = Todo.query();
       vm.newTodo = {};
       vm.addTodo = function () {
         vm.todos.push({
