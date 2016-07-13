@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-  <html lang="en" data-ng-app="todos">
-  <head>
-     <meta charset="UTF-8">
-     <title>Angular ToDo App</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-     <script src="app.js"></script>
-  </head>
-  <body data-ng-controller="todosCtrl as vm">
+<%= javascript_include_tag 'todos' %>
+  <main data-ng-app="todos" data-ng-controller="todosCtrl as vm">
     <h1>To Do!</h1>
     <form class="newTodo" data-ng-submit="vm.addTodo()">
       <input type='text' placeholder="Add another item..." data-ng-model="vm.newTodo.title">
@@ -22,5 +15,4 @@
         <button data-ng-click="vm.removeTodo($index)">✗</button>
       </li>
     </ul>
-  </body>
-</html>
+  </main>
