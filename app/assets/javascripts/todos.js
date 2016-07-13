@@ -30,7 +30,9 @@
       }
       vm.updateTodo = function (todo) {
         if (todo) {
-          todo.showEditForm = !todo.showEditForm
+          Todo.update({id: todo.id}, todo, function (response) {
+            todo.showEditForm = !todo.showEditForm
+          })
         }
       }
     }
