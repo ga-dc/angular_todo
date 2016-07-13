@@ -21,7 +21,12 @@
       }
       vm.removeTodo = function (index) {
         if (vm.todos[index]) {
-          vm.todos.splice(index, 1)
+          var todo = vm.todos[index];
+          Todo.remove({id: todo.id}, function(response) {
+            if (response.success){
+              vm.todos.splice(index, 1);
+            }
+          })
         }
       }
       vm.updateTodo = function (todo) {

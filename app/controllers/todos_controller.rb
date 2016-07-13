@@ -5,4 +5,9 @@ class TodosController < ApplicationController
       format.json { render json: Todo.all}
     end
   end
+  def destroy
+    @todo = Todo.find(params[:id])
+    @todo.destroy
+    render json: {success: true}, status: :ok
+  end
 end
