@@ -11,13 +11,12 @@
         update: {method: "PUT"}
       });
       vm.todos = Todo.query();
-      vm.newTodo = {};
+      vm.newTodo = new Todo();
       vm.addTodo = function () {
-        vm.todos.push({
-          title: vm.newTodo.title,
-          completed: false
-        });
-        vm.newTodo = {};
+        Todo.save(vm.newTodo, function (response) {
+          vm.todos.push(response);
+          vm.newTodo = {};
+        })
       }
       vm.removeTodo = function (index) {
         if (vm.todos[index]) {
