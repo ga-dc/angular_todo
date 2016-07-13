@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Todo.create!([
+  {title: "Learn Angular", completed: false},
+  {title: "Build a todo app", completed: false},
+  {title: "Mark building a todo app as complete", completed: false},
+  {title: "Repeat", completed: false},
+])
